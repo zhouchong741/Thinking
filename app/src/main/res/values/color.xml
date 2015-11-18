@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="holo_purple">#ffaa66cc</color>
+
+    <color name="colorPrimary">#a1887f</color>
+    <color name="colorPrimaryDark">#795548</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="actionMenuColor">#fff</color>
+
+    <color name="tv_color">#e0e0e0</color>
+    <color name="iv_color">#e0e0e0</color>
+
+</resources>

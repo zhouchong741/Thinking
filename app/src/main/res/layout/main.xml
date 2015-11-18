@@ -30,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:paddingBottom="30dp"
-        android:progress="0"/>
+        android:progress="0"
+        android:thumb="@drawable/seekbar_thumb"/>
 
     <LinearLayout
         android:id="@+id/ll_content"

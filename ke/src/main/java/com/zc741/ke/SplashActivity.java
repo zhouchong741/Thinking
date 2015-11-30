@@ -1,55 +1,40 @@
-package com.waveview.demo;
+package com.zc741.ke;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ShareActionProvider;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.john.waveview.WaveView;
 
-/**
- * Created by zc741 on 18/11/15.
- */
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
-    private SeekBar seekBar;
-    private WaveView waveView;
 
-    private LinearLayout ll_content;
+    protected WaveView waveView;
+    //private LinearLayout ll_content;
     private TextView tv_slide_note;
+    protected SeekBar seekBar;
     private String progress_value;
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_splash);
 
+        initViews();
+    }
+
+    private void initViews() {
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         waveView = (WaveView) findViewById(R.id.wave_view);
 
+        //ll_content = (LinearLayout) findViewById(R.id.ll_content);
         tv_slide_note = (TextView) findViewById(R.id.slide);
 
-        ll_content = (LinearLayout) findViewById(R.id.ll_content);
-
-        final ActionBar actionBar = getSupportActionBar();
-        //actionBar隐藏
-        actionBar.hide();
-        //设置Title
-        actionBar.setTitle("克");
-
-        //seekBar设置监听
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 waveView.setProgress(progress);
@@ -57,20 +42,19 @@ public class MainActivity extends AppCompatActivity {
                 //判断当seekBar==100 显示和隐藏
                 if (progress == 100) {
                     //整个主布局显示
-                    ll_content.setVisibility(View.VISIBLE);
+                    //ll_content.setVisibility(View.VISIBLE);
                     //设置提示手指滑动的文字隐藏
                     tv_slide_note.setVisibility(View.INVISIBLE);
                     //进度条隐藏
                     seekBar.setVisibility(View.GONE);
-                    //actionBar显示
-                    actionBar.show();
+
+                    turnToMainActivity();
                 }
+
 
                 //获取到当前的progress的值
                 progress_value = String.valueOf(progress);
                 //System.out.println(progress_value);
-
-
 
             }
 
@@ -85,25 +69,19 @@ public class MainActivity extends AppCompatActivity {
                 int i = Integer.parseInt(progress_value);
                 if (i != 100) {
                     //提示用户
-                    Toast.makeText(MainActivity.this, "滑动到最右哟！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SplashActivity.this, "滑动到最右哟！", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.actionbar, menu);
-        MenuItem shareItem = menu.findItem(R.id.share);
-        ShareActionProvider shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-        shareActionProvider.setShareIntent(getDefaultIntent());
-        return super.onCreateOptionsMenu(menu);
+    //跳转到MainActivity
+    private void turnToMainActivity() {
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(intent);
+        //结束当前页，当进入MainActivity后返回时，会销毁，直接退出app
+        finish();
     }
 
-    private Intent getDefaultIntent() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("*/*");
-        return intent;
-    }
+
 }

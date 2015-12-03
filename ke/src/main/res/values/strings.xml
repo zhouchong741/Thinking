@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Thinking</string>
-    
-    <string name="open_string"></string>
-    <string name="close_string"></string>
+
+    <string name="open_string">open</string>
+    <string name="close_string">close</string>
+    <string name="share">share</string>
+    <string name="About">关于Thinking</string>
+    <string name="submit">你的建议</string>
+    <string name="publish">你的投稿</string>
+    <string name="checkupdate">检查更新</string>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Thinking</string>
+    <string name="open_string">open</string>
+    <string name="close_string">close</string>
+    <string name="share">share</string>
+</resources>

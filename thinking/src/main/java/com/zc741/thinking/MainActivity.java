@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTv_word;
     private ImageView mIv_pic;
     private Content mData;
-    private URL mUrl;
+    private Bitmap mBitmap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,6 +202,9 @@ public class MainActivity extends AppCompatActivity {
                 String result = responseInfo.result;
                 //System.out.println("result=" + result);
                 parseJson(result);
+
+                //setCache();
+
             }
 
             @Override
@@ -211,6 +215,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //设置缓存
+    /*private void setCache() {
+        final String cachePNG = Environment.getExternalStorageDirectory().getPath()+"/cache.png";
+        mBitmapUtils = new BitmapUtils(this, cachePNG);
+
+    }*/
+
+
     /**
      * 解析json
      *
@@ -220,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
 
         mData = gson.fromJson(result, Content.class);
-        //System.out.println(data);
+        System.out.println(mData);
 
         //填充内容
         mTv_word = (TextView) findViewById(R.id.tv_word);
@@ -228,19 +240,15 @@ public class MainActivity extends AppCompatActivity {
         mTv_word.setText(mData.getWord());
 
         try {
-            mUrl = new URL(mData.getPic());
-            Bitmap bitmap = BitmapFactory.decodeStream(mUrl.openStream());
-            mIv_pic.setImageBitmap(bitmap);
+            URL url = new URL(mData.getPic());
+            mBitmap = BitmapFactory.decodeStream(url.openStream());
+            mIv_pic.setImageBitmap(mBitmap);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //System.out.println(data.getWord());
+        System.out.println(mData.getWord());
         System.out.println(mData.getPic());
     }
-
-
-    //设置缓存
-
 
 
     @Override
@@ -269,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
 
     //实现分享功能
     private void shareFunction() {
-        System.out.println("点击了分享");
+        System.out.println(Environment.getExternalStorageDirectory().getPath() + "/4.png");
 
         ShareSDK.initSDK(this);
         OnekeyShare oks = new OnekeyShare();
@@ -285,9 +293,9 @@ public class MainActivity extends AppCompatActivity {
         // text是分享文本，所有平台都需要这个字段
         oks.setText(mData.getWord());
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数  //图片要缓存到这里
-        oks.setImagePath(Environment.getExternalStorageDirectory().getPath()+"/8.png");//确保SDcard下面存在此张图片 "/sdcard/test.jpg"
+        oks.setImagePath(Environment.getExternalStorageDirectory().getPath() + "/4.png");//确保SDcard下面存在此张图片 "/sdcard/test.jpg"
         // url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl(String.valueOf(mUrl));
+        oks.setUrl("http://sharesdk.cn");
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
         oks.setComment("我是测试评论文本");
         // site是分享此内容的网站名称，仅在QQ空间使用

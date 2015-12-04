@@ -161,7 +161,7 @@ public class OnekeyShare implements PlatformActionListener, Callback {
 		return shareParamsMap.containsKey("text") ? String.valueOf(shareParamsMap.get("text")) : null;
 	}
 
-	/** imagePath是本地的图片路径，除Linked-In外的所有平台都支持这个字段 */
+	/** imagePath是本地的图片路径，除Linked-In外的所有平台都支持这个字段*/
 	public void setImagePath(String imagePath) {
 		if(!TextUtils.isEmpty(imagePath))
 			shareParamsMap.put("imagePath", imagePath);

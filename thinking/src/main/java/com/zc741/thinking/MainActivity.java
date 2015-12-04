@@ -1,11 +1,15 @@
 package com.zc741.thinking;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -38,6 +42,10 @@ import com.zc741.thinking.ItemDrawerleft.VersionActivity;
 import com.zc741.thinking.domain.Content;
 import com.zc741.thinking.domain.Utils.DpToPx;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 import cn.sharesdk.framework.ShareSDK;
@@ -54,6 +62,22 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mIv_pic;
     private Content mData;
     private Bitmap mBitmap;
+    private URL mURL;
+
+    static Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            //处理消息时，需要知道到底是成功的消息，还是失败的消息
+            switch (msg.what) {
+                case 1:
+                    //把位图对象显示至imageview
+                    break;
+
+                case 0:
+                    break;
+            }
+        }
+    };
 
 
     @Override
@@ -204,7 +228,6 @@ public class MainActivity extends AppCompatActivity {
                 parseJson(result);
 
                 //setCache();
-
             }
 
             @Override
@@ -240,14 +263,77 @@ public class MainActivity extends AppCompatActivity {
         mTv_word.setText(mData.getWord());
 
         try {
-            URL url = new URL(mData.getPic());
-            mBitmap = BitmapFactory.decodeStream(url.openStream());
+            mURL = new URL(mData.getPic());
+            mBitmap = BitmapFactory.decodeStream(mURL.openStream());
             mIv_pic.setImageBitmap(mBitmap);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(mData.getWord());
-        System.out.println(mData.getPic());
+        //System.out.println(mData.getWord());//这是第一天的内容，作为测试用的。这是第一天的内容，作为测试用的。这是第一天的内容，作为测试用的。
+        //System.out.println(mData.getPic());//http://www.zc741.com/thinking/pictures/bbg.png
+        System.out.println(mURL);//http://www.zc741.com/thinking/pictures/bbg.png
+
+        //缓存图片
+        cachePNG();
+    }
+
+    //缓存图片
+    private void cachePNG() {
+        //下载图片
+        String path = mURL + "";
+        final File file = new File(Environment.getExternalStorageDirectory().getPath(), "cache.png");
+
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+
+                try {
+                    HttpURLConnection conn = (HttpURLConnection) mURL.openConnection();
+                    //4.对连接对象进行初始化
+                    //设置请求方法，注意大写
+                    conn.setRequestMethod("GET");
+                    //设置连接超时
+                    conn.setConnectTimeout(5000);
+                    //设置读取超时
+                    conn.setReadTimeout(5000);
+                    //5.发送请求，与服务器建立连接
+                    conn.connect();
+
+                    if (conn.getResponseCode() == 200) {
+                        //获取服务器响应头中的流，流里的数据就是客户端请求的数据
+                        InputStream is = conn.getInputStream();
+
+                        //读取服务器返回的流里的数据，把数据写到本地文件，缓存起来
+
+                        FileOutputStream fos = new FileOutputStream(file);
+                        byte[] b = new byte[1024];
+                        int len = 0;
+                        while ((len = is.read(b)) != -1) {
+                            fos.write(b, 0, len);
+                        }
+                        fos.close();
+
+                        //读取出流里的数据，并构造成位图对象
+                        //流里已经没有数据了
+//							Bitmap bm = BitmapFactory.decodeStream(is);
+                        Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
+                        Message msg = new Message();
+                        //消息对象可以携带数据
+                        msg.obj = bm;
+                        msg.what = 1;
+                        //把消息发送至主线程的消息队列
+                        handler.sendMessage(msg);
+                    } else {
+                        Message msg = handler.obtainMessage();
+                        msg.what = 0;
+                        handler.sendMessage(msg);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        t.start();
     }
 
 
@@ -264,7 +350,14 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         } else if (id == R.id.menu_share) {
-            shareFunction();
+
+            //判断是否联网 无效的
+            ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (connectivity == null) {
+                Toast.makeText(MainActivity.this, "您的手机没有联网，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
+            } else {
+                shareFunction();
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -293,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
         // text是分享文本，所有平台都需要这个字段
         oks.setText(mData.getWord());
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数  //图片要缓存到这里
-        oks.setImagePath(Environment.getExternalStorageDirectory().getPath() + "/4.png");//确保SDcard下面存在此张图片 "/sdcard/test.jpg"
+        oks.setImagePath(Environment.getExternalStorageDirectory().getPath() + "/cache.png");//确保SDcard下面存在此张图片 "/sdcard/test.jpg"
         // url仅在微信（包括好友和朋友圈）中使用
         oks.setUrl("http://sharesdk.cn");
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用

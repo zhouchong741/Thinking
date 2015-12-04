@@ -8,14 +8,6 @@
 
 package cn.sharesdk.onekeyshare;
 
-import static com.mob.tools.utils.BitmapHelper.captureView;
-import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
-
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -25,11 +17,21 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
+
+import com.mob.tools.utils.UIHandler;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
-import com.mob.tools.utils.UIHandler;
+
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
+import static com.mob.tools.utils.BitmapHelper.captureView;
 
 /**
  * 快捷分享的入口
@@ -148,7 +150,8 @@ public class OnekeyShare implements PlatformActionListener, Callback {
 		shareParamsMap.put("titleUrl", titleUrl);
 	}
 
-	/** text是分享文本，所有平台都需要这个字段 */
+	/** text是分享文本，所有平台都需要这个字段
+     * @param text*/
 	public void setText(String text) {
 		shareParamsMap.put("text", text);
 	}

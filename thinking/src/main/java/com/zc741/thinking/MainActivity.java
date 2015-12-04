@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -49,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle mActionBarDrawerToggle;
 
     private LinearLayout mLinearLayout;
+    private TextView mTv_word;
+    private ImageView mIv_pic;
+    private Content mData;
+    private URL mUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,24 +219,29 @@ public class MainActivity extends AppCompatActivity {
     private void parseJson(String result) {
         Gson gson = new Gson();
 
-        Content data = gson.fromJson(result, Content.class);
+        mData = gson.fromJson(result, Content.class);
         //System.out.println(data);
 
         //填充内容
-        TextView tv_word = (TextView) findViewById(R.id.tv_word);
-        ImageView iv_pic = (ImageView) findViewById(R.id.iv_pic);
-        tv_word.setText(data.getWord());
+        mTv_word = (TextView) findViewById(R.id.tv_word);
+        mIv_pic = (ImageView) findViewById(R.id.iv_pic);
+        mTv_word.setText(mData.getWord());
 
         try {
-            URL url = new URL(data.getPic());
-            Bitmap bitmap = BitmapFactory.decodeStream(url.openStream());
-            iv_pic.setImageBitmap(bitmap);
+            mUrl = new URL(mData.getPic());
+            Bitmap bitmap = BitmapFactory.decodeStream(mUrl.openStream());
+            mIv_pic.setImageBitmap(bitmap);
         } catch (Exception e) {
             e.printStackTrace();
         }
         //System.out.println(data.getWord());
-        System.out.println(data.getPic());
+        System.out.println(mData.getPic());
     }
+
+
+    //设置缓存
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -273,11 +283,11 @@ public class MainActivity extends AppCompatActivity {
         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
         oks.setTitleUrl("http://sharesdk.cn");
         // text是分享文本，所有平台都需要这个字段
-        oks.setText("我是分享文本");
-        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        oks.setText(mData.getWord());
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数  //图片要缓存到这里
+        oks.setImagePath(Environment.getExternalStorageDirectory().getPath()+"/8.png");//确保SDcard下面存在此张图片 "/sdcard/test.jpg"
         // url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl("http://sharesdk.cn");
+        oks.setUrl(String.valueOf(mUrl));
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
         oks.setComment("我是测试评论文本");
         // site是分享此内容的网站名称，仅在QQ空间使用

@@ -41,7 +41,6 @@ public class BaseActivity extends AppCompatActivity {
         initItem();
 
         initDrawerToggle();
-
     }
 
     private void initDrawerToggle() {

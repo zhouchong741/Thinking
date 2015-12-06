@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -255,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
 
         mData = gson.fromJson(result, Content.class);
-        System.out.println(mData);
+        //System.out.println(mData);
 
         //填充内容
         mTv_word = (TextView) findViewById(R.id.tv_word);
@@ -370,8 +369,6 @@ public class MainActivity extends AppCompatActivity {
 
     //实现分享功能
     private void shareFunction() {
-        System.out.println(Environment.getExternalStorageDirectory().getPath() + "/4.png");
-
         ShareSDK.initSDK(this);
         OnekeyShare oks = new OnekeyShare();
         //关闭sso授权

@@ -1,9 +1,13 @@
 package com.zc741.thinking.ItemDrawerleft;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Environment;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +17,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.zc741.thinking.R;
 import com.zc741.thinking.domain.Utils.DpToPx;
+import com.zc741.thinking.domain.VersionData;
+
+import java.io.File;
 
 public class VersionActivity extends BaseActivity {
     private String mVersion;
     private LinearLayout mLinearLayout;
+    private VersionData mVersionData;
+    private String mTargetPath;
+    private int mVersionCode;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -27,15 +44,19 @@ public class VersionActivity extends BaseActivity {
         super.setContentView(R.layout.activity_check_update);
 
         //显示版本号
-        checkUpdate();
+        showVersion();
+
+        //解析更新的json
+        getDataFromServer();
     }
 
-    private void checkUpdate() {
+    private void showVersion() {
         TextView tv_version = (TextView) findViewById(R.id.tv_version);
 
         PackageManager packageManager = getPackageManager();
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
+            mVersionCode = packageInfo.versionCode;
             mVersion = packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -44,10 +65,126 @@ public class VersionActivity extends BaseActivity {
         tv_version.setText("当前版本:" + mVersion);
     }
 
-    public void checkupdate(View view) {
-        System.out.println("检查更新");
+    //获取服务器跟新数据
+    private void getDataFromServer() {
+        HttpUtils httpUtils = new HttpUtils();
+        String uri = "http://www.zc741.com/thinking/update.json";
+        httpUtils.send(HttpMethod.GET, uri, new RequestCallBack<String>() {
+            @Override
+            public void onSuccess(ResponseInfo<String> responseInfo) {
+                String result = responseInfo.result;
+                //System.out.println(result);
 
-        //Toast.makeText(CheckUpdate.this, "当前版本是最新的哟!", Toast.LENGTH_SHORT).show();
+                //解析更新的json
+                parseData(result);
+            }
+            @Override
+            public void onFailure(HttpException e, String s) {
+                System.out.println("解析失败");
+                System.out.println(s);
+                e.printStackTrace();
+            }
+        });
+    }
+
+    //解析更新的json
+    private void parseData(String result) {
+        Gson gson = new Gson();
+        mVersionData = gson.fromJson(result, VersionData.class);
+        System.out.println("code==" + mVersionData.getVersionCode());
+
+        /*
+         versionName=2.0
+         versionCode=2
+         description=有新版本，建议更新
+         downLoadUrl=http://www.zc741.com/thinking/Thinking.apk
+         */
+    }
+
+    //检查更新
+    public void checkupdate(View view) {
+        /*
+         * mVersionData.getVersionCode(); 服务器版本
+         * mVersionCode; 当前版本
+         */
+        if (mVersionData.getVersionCode() >= mVersionCode) {
+            alertDialog();
+        } else {
+            Toast.makeText(VersionActivity.this, "当前是最新版本哟！", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //弹出对话框下载
+    private void alertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("建议下载并安装，体验新功能");
+        builder.setTitle("有新版本");
+        builder.setPositiveButton("下载", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //System.out.println("下载了。。。。");
+                dialog.dismiss();
+                //进行下载程序XUtils
+                downloadAPK();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //System.out.println("取消下载了。。。。");
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    //进行下载程序XUtils
+    private void downloadAPK() {
+        HttpUtils utils = new HttpUtils();
+        String uri = mVersionData.getDownLoadUrl();
+        mTargetPath = Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk";
+        utils.download(uri, mTargetPath, true, new RequestCallBack<File>() {
+            @Override
+            public void onSuccess(ResponseInfo<File> responseInfo) {
+                //System.out.println("下载成功");
+                //成功后跳转到安装界面
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_DEFAULT);
+                intent.setDataAndType(Uri.fromFile(responseInfo.result), "application/vnd.android.package-archive");
+                startActivity(intent);
+
+                //删除apk文件
+                deleteAPK();
+            }
+
+            @Override
+            public void onLoading(long total, long current, boolean isUploading) {
+                super.onLoading(total, current, isUploading);
+//                System.out.println("下载进度：" + current + "/" + total);
+                long percent = current * 100 / total;
+                TextView tv_download = (TextView) findViewById(R.id.tv_download);
+                tv_download.setText("下载进度:" + percent + "%");
+            }
+
+            @Override
+            public void onFailure(HttpException e, String s) {
+                Toast.makeText(VersionActivity.this, s, Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        });
+    }
+
+    //删除apk
+    private void deleteAPK() {
+        PackageManager packageManager = getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
+            String currentVersion = packageInfo.versionName;
+            System.out.println("currentVersion" + currentVersion);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("删除apk");
     }
 
     public void initItem() {
@@ -56,14 +193,11 @@ public class VersionActivity extends BaseActivity {
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
-
-
         };
         final String[] items = new String[]{
                 "         About",
                 "         Advice",
                 "         Contribute",
-
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);

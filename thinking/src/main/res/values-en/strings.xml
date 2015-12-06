@@ -4,4 +4,8 @@
     <string name="open_string">open</string>
     <string name="close_string">close</string>
     <string name="share">share</string>
+    <string name="About">About Thinking</string>
+    <string name="submit">Contribute</string>
+    <string name="publish">Publish</string>
+    <string name="version">CheckVersion</string>
 </resources>

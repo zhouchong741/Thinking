@@ -13,10 +13,26 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="你想发的稿件"/>
+            style="@style/AboutStyle"
+            android:text="投稿请发送至邮箱"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="zhouchong741@hotmail.com"
+            android:textIsSelectable="true"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="zhouchong741@gmail.com"
+            android:textIsSelectable="true"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="postmaster@zc741.com"
+            android:textIsSelectable="true"/>
+
     </LinearLayout>
 
     <FrameLayout

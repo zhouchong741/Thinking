@@ -26,13 +26,15 @@ public class PublishActivity extends BaseActivity {
         final int[] pics = new int[]{
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_chat_black_18dp,
+                R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
 
         };
         final String[] items = new String[]{
                 "         About",
                 "         Advice",
-                "         Version"
+                "         Version",
+                "         Thinkinger"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);
@@ -101,6 +103,10 @@ public class PublishActivity extends BaseActivity {
                         startActivity(intent3);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
+                    case 3:
+                        Intent intent4 = new Intent(getApplicationContext(), ThinkingerActivity.class);
+                        startActivity(intent4);
+                        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                     default:
                         break;
                 }

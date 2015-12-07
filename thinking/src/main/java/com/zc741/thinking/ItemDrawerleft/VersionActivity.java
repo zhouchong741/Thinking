@@ -78,6 +78,7 @@ public class VersionActivity extends BaseActivity {
                 //解析更新的json
                 parseData(result);
             }
+
             @Override
             public void onFailure(HttpException e, String s) {
                 System.out.println("解析失败");
@@ -173,12 +174,14 @@ public class VersionActivity extends BaseActivity {
         final int[] pics = new int[]{
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_chat_black_18dp,
+                R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
         };
         final String[] items = new String[]{
                 "         About",
                 "         Advice",
                 "         Contribute",
+                "         Thinkinger"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);
@@ -246,6 +249,10 @@ public class VersionActivity extends BaseActivity {
                         startActivity(intent2);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
+                    case 3:
+                        Intent intent4 = new Intent(getApplicationContext(), ThinkingerActivity.class);
+                        startActivity(intent4);
+                        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                     default:
                         break;
                 }

@@ -57,6 +57,7 @@ public class BaseActivity extends AppCompatActivity {
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_markunread_black_18dp,
+                R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
 
         };
@@ -64,7 +65,8 @@ public class BaseActivity extends AppCompatActivity {
                 "         About",
                 "         Advice",
                 "         Contribute",
-                "         Version"
+                "         Version",
+                "         Thinkinger"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);
@@ -135,6 +137,11 @@ public class BaseActivity extends AppCompatActivity {
                     case 3:
                         Intent intent3 = new Intent(getApplicationContext(), VersionActivity.class);
                         startActivity(intent3);
+                        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+                        break;
+                    case 4:
+                        Intent intent4 = new Intent(getApplicationContext(), ThinkingerActivity.class);
+                        startActivity(intent4);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
                     default:

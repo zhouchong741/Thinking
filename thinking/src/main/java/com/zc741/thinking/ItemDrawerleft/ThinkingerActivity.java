@@ -15,16 +15,15 @@ import android.widget.TextView;
 import com.zc741.thinking.R;
 import com.zc741.thinking.domain.Utils.DpToPx;
 
-public class ContributeActivity extends BaseActivity {
+public class ThinkingerActivity extends BaseActivity {
     private LinearLayout mLinearLayout;
-
     @Override
     public void setContentView(int layoutResID) {
-        super.setContentView(R.layout.activity_suggestion);
+        super.setContentView(R.layout.activity_thinkinger);
+        initItem();
     }
-
     public void initItem() {
-        //侧边栏listItem
+
         final int[] pics = new int[]{
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_markunread_black_18dp,
@@ -34,9 +33,10 @@ public class ContributeActivity extends BaseActivity {
         };
         final String[] items = new String[]{
                 "         About",
+                "         Advice",
                 "         Contribute",
-                "         Version",
-                "         Thinkinger"
+                "         Version"
+
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);
@@ -60,7 +60,6 @@ public class ContributeActivity extends BaseActivity {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 //System.out.println(items[position]);
-                //添加两个布局
                 mLinearLayout = new LinearLayout(getApplicationContext());
                 mLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
                 mLinearLayout.setGravity(Gravity.CENTER_VERTICAL);
@@ -94,21 +93,21 @@ public class ContributeActivity extends BaseActivity {
                         startActivity(intent0);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
-
                     case 1:
+                        Intent intent1 = new Intent(getApplicationContext(), ContributeActivity.class);
+                        startActivity(intent1);
+                        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+                        break;
+                    case 2:
                         Intent intent2 = new Intent(getApplicationContext(), PublishActivity.class);
                         startActivity(intent2);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
-                    case 2:
+                    case 3:
                         Intent intent3 = new Intent(getApplicationContext(), VersionActivity.class);
                         startActivity(intent3);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
-                    case 3:
-                        Intent intent4 = new Intent(getApplicationContext(), ThinkingerActivity.class);
-                        startActivity(intent4);
-                        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                     default:
                         break;
                 }

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.zc741.thinking"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.zc741.thinking"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <!--ShareSDK-->
+    <!-- ShareSDK -->
     <uses-permission android:name="android.permission.GET_TASKS"/>
-    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
@@ -26,7 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.zc741.thinking.SplashActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -35,9 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.zc741.thinking.MainActivity">
+        <activity android:name=".MainActivity">
         </activity>
-        <!--ShareSDK-->
+        <!-- ShareSDK -->
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -46,6 +45,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <data android:scheme="tencent100371282"/>
+
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.BROWSABLE"/>
@@ -54,11 +54,12 @@
             <!-- 调用新浪原生SDK，需要注册的回调activity -->
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
-        <!--微信分享回调 -->
+        <!-- 微信分享回调 -->
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -72,25 +73,29 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <!--ShareSDK-->
+        <!-- ShareSDK -->
         <activity
-            android:name="com.zc741.thinking.ItemDrawerleft.AboutActivity"
+            android:name=".ItemDrawerleft.AboutActivity"
             android:label="@string/About">
         </activity>
         <activity
-            android:name="com.zc741.thinking.ItemDrawerleft.ContributeActivity"
+            android:name=".ItemDrawerleft.ContributeActivity"
             android:label="@string/submit">
         </activity>
         <activity
-            android:name="com.zc741.thinking.ItemDrawerleft.PublishActivity"
+            android:name=".ItemDrawerleft.PublishActivity"
             android:label="@string/publish">
         </activity>
         <activity
-            android:name="com.zc741.thinking.ItemDrawerleft.VersionActivity"
+            android:name=".ItemDrawerleft.VersionActivity"
             android:label="@string/version">
+        </activity>
+        <activity android:name=".ItemDrawerleft.ThinkingerActivity"
+            android:label="@string/Thinkinger">
         </activity>
     </application>
 

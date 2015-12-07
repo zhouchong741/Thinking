@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.zc741.thinking"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="com.zc741.thinking"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -94,7 +95,8 @@
             android:name=".ItemDrawerleft.VersionActivity"
             android:label="@string/version">
         </activity>
-        <activity android:name=".ItemDrawerleft.ThinkingerActivity"
+        <activity
+            android:name=".ItemDrawerleft.ThinkingerActivity"
             android:label="@string/Thinkinger">
         </activity>
     </application>

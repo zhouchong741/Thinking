@@ -30,7 +30,6 @@ public class ContributeActivity extends BaseActivity {
                 R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
-
         };
         final String[] items = new String[]{
                 "         About",
@@ -80,7 +79,6 @@ public class ContributeActivity extends BaseActivity {
                 mLinearLayout.addView(textView);
 
                 return mLinearLayout;
-
             }
         };
         mListview.setAdapter(adapter);

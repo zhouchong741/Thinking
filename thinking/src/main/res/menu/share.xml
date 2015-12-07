@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_share"
         android:actionProviderClass="android.widget.ShareActionProvider"
-        share:showAsAction="always"
+        android:icon="@mipmap/ic_action_share"
         android:title="分享"
-        android:icon="@mipmap/ic_action_share"/>
+        share:showAsAction="always"/>
 </menu>

@@ -19,9 +19,10 @@
 
         <LinearLayout
             android:id="@+id/titleLayout"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/titleEditText"
                 android:layout_width="0dp"
@@ -37,7 +38,7 @@
                 android:paddingLeft="10dp"
                 android:scaleType="center"
                 android:src="@drawable/ssdk_oks_skyblue_editpage_close"/>
-            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:id="@+id/divider"
@@ -61,10 +62,10 @@
 
         <LinearLayout
             android:id="@+id/atLayout"
-            android:layout_below="@id/textEditText"
-            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textEditText"
+            android:orientation="vertical">
 
         </LinearLayout>
 
@@ -80,12 +81,12 @@
 
         <HorizontalScrollView
             android:id="@+id/hScrollView"
-            android:scrollbars="none"
-            android:fadingEdge="none"
             android:layout_width="wrap_content"
             android:layout_height="56dp"
             android:layout_below="@id/atLayout"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:fadingEdge="none"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:id="@+id/imagesLinearLayout"

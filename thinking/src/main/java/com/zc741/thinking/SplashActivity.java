@@ -15,7 +15,6 @@ public class SplashActivity extends AppCompatActivity {
 
 
     protected WaveView waveView;
-    //private LinearLayout ll_content;
     private TextView tv_slide_note;
     protected SeekBar seekBar;
     private String progress_value;
@@ -28,7 +27,6 @@ public class SplashActivity extends AppCompatActivity {
         checkNet();
 
         initViews();
-
     }
 
     //检查网络
@@ -50,7 +48,6 @@ public class SplashActivity extends AppCompatActivity {
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         waveView = (WaveView) findViewById(R.id.wave_view);
 
-        //ll_content = (LinearLayout) findViewById(R.id.ll_content);
         tv_slide_note = (TextView) findViewById(R.id.slide);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -66,13 +63,12 @@ public class SplashActivity extends AppCompatActivity {
                     tv_slide_note.setVisibility(View.INVISIBLE);
                     //进度条隐藏
                     seekBar.setVisibility(View.GONE);
-
+                    //跳转到MainActivity
                     turnToMainActivity();
                 }
                 //获取到当前的progress的值
                 progress_value = String.valueOf(progress);
                 //System.out.println(progress_value);
-
             }
 
             @Override

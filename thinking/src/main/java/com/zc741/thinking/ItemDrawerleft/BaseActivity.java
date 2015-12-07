@@ -59,7 +59,6 @@ public class BaseActivity extends AppCompatActivity {
                 R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
-
         };
         final String[] items = new String[]{
                 "         About",
@@ -110,7 +109,6 @@ public class BaseActivity extends AppCompatActivity {
                 mLinearLayout.addView(textView);
 
                 return mLinearLayout;
-
             }
         };
         mListview.setAdapter(adapter);
@@ -162,12 +160,10 @@ public class BaseActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 drawerLayout.closeDrawers();

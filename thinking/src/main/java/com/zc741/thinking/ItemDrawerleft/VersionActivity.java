@@ -42,10 +42,8 @@ public class VersionActivity extends BaseActivity {
     public void setContentView(int layoutResID) {
 
         super.setContentView(R.layout.activity_check_update);
-
         //显示版本号
         showVersion();
-
         //解析更新的json
         getDataFromServer();
     }
@@ -61,7 +59,6 @@ public class VersionActivity extends BaseActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
         tv_version.setText("当前版本:" + mVersion);
     }
 
@@ -93,12 +90,6 @@ public class VersionActivity extends BaseActivity {
         Gson gson = new Gson();
         mVersionData = gson.fromJson(result, VersionData.class);
         //System.out.println("code==" + mVersionData.getVersionCode());
-
-        /*
-         versionName=2.0
-         versionCode=2
-         downLoadUrl=http://www.zc741.com/thinking/Thinking.apk
-         */
     }
 
     //检查更新
@@ -225,7 +216,6 @@ public class VersionActivity extends BaseActivity {
                 mLinearLayout.addView(textView);
 
                 return mLinearLayout;
-
             }
         };
         mListview.setAdapter(adapter);

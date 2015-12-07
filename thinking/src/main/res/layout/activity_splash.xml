@@ -34,7 +34,8 @@
         android:minHeight="4dp"
         android:paddingBottom="30dp"
         android:progress="0"
-        /><!--进度条颜色-->
+        />
+    <!--进度条颜色-->
     <!--android:thumb="@drawable/seekbar_thumb"-->
 </FrameLayout>
 

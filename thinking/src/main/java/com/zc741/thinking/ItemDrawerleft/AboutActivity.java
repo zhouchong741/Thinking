@@ -31,7 +31,6 @@ public class AboutActivity extends BaseActivity {
                 R.mipmap.ic_chat_black_18dp,
                 R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
-
         };
         final String[] items = new String[]{
                 "         Advice",

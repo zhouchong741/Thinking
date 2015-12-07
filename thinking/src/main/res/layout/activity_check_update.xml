@@ -10,32 +10,32 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
         <TextView
-            android:gravity="center"
             android:id="@+id/tv_version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="当前版本:"
             android:textSize="16sp"/>
+
         <Button
-            android:text="检查更新"
-            android:textSize="18sp"
-            android:textColor="@android:color/darker_gray"
-            android:onClick="checkupdate"
             style="@drawable/button_style"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:onClick="checkupdate"
+            android:text="检查更新"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"/>
 
         <TextView
-            android:gravity="left"
             android:id="@+id/tv_download"
-
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
+            android:layout_height="wrap_content"
+            android:gravity="left"/>
     </LinearLayout>
 
     <LinearLayout
@@ -45,6 +45,7 @@
         android:layout_gravity="start"
         android:clickable="true"
         android:orientation="vertical">
+
         <include layout="@layout/item_list"/>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

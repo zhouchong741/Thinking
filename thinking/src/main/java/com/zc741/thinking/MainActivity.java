@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     //把位图对象显示至imageview
                     break;
-
                 case 0:
                     break;
             }
@@ -96,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         ShareSDK.initSDK(this);
     }
 
+    //执行onStart()方法 调用getDataFromServer()一次
     @Override
     protected void onStart() {
         super.onStart();
@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp,
                 R.mipmap.ic_markunread_black_18dp
-
         };
         final String[] items = new String[]{
                 "         About",
@@ -170,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         mListview.setAdapter(adapter);
-
         //侧边栏点击事件
         mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -224,7 +222,6 @@ public class MainActivity extends AppCompatActivity {
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.addCategory(Intent.CATEGORY_HOME);
             startActivity(i);
-            //super.onBackPressed();
         }
         overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
     }
@@ -239,10 +236,7 @@ public class MainActivity extends AppCompatActivity {
                 String result = responseInfo.result;
                 //System.out.println("result=" + result);
                 parseJson(result);
-
-                //setCache();
             }
-
             @Override
             public void onFailure(HttpException e, String s) {
                 Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
@@ -250,15 +244,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    //设置缓存
-    /*private void setCache() {
-        final String cachePNG = Environment.getExternalStorageDirectory().getPath()+"/cache.png";
-        mBitmapUtils = new BitmapUtils(this, cachePNG);
-
-    }*/
-
-
+    
     /**
      * 解析json
      *

@@ -1,6 +1,7 @@
 package com.zc741.thinking;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,7 +24,26 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        //要求用户联网
+        checkNet();
+
         initViews();
+
+    }
+
+    //检查网络
+    private void checkNet() {
+        boolean flag = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        if (connectivityManager.getActiveNetworkInfo() != null) {
+            flag = connectivityManager.getActiveNetworkInfo().isAvailable();
+        }
+        if (!flag) {
+            Toast.makeText(SplashActivity.this, "网络连接出问题啦！可能会影响使用呀", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(SplashActivity.this, "当前网络已连接", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void initViews() {
@@ -82,8 +102,8 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(500);
-                    System.out.println("sleep 500ms");
+                    sleep(300);
+                    System.out.println("sleep 300ms");
                     finish();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

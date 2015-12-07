@@ -95,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
         ShareSDK.initSDK(this);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getDataFromServer();
+    }
+
     private void initDrawerToggle() {
         mActionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.open_string, R.string.close_string);
         mActionBarDrawerToggle.syncState();

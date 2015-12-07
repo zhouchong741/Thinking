@@ -13,5 +13,6 @@
 
     <color name="above_wave_color">#0288d1</color>
     <color name="blow_wave_color">#03a9f4</color>
+    <color name="sina_top">#03a9f4</color>
 
 </resources>

@@ -44,6 +44,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data android:name="AuthorizeAdapter" android:value="com.zc741.thinking.MyAdapter" />
             <intent-filter>
                 <data android:scheme="tencent100371282"/>
 
@@ -51,6 +52,7 @@
 
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+
             </intent-filter>
             <!-- 调用新浪原生SDK，需要注册的回调activity -->
             <intent-filter>

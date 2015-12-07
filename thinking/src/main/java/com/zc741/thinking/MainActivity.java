@@ -374,6 +374,8 @@ public class MainActivity extends AppCompatActivity {
         //关闭sso授权
         oks.disableSSOWhenAuthorize();
 
+        //oks.setTheme(OnekeyShareTheme.CLASSIC);//设置主题
+
 // 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
         //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用

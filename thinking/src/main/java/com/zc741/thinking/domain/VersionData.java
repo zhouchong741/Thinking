@@ -6,7 +6,6 @@ package com.zc741.thinking.domain;
 public class VersionData {
     private String versionName;
     private int versionCode;
-    private String description;
     private String downLoadUrl;
 
     public String getVersionName() {
@@ -25,14 +24,6 @@ public class VersionData {
         this.versionCode = versionCode;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getDownLoadUrl() {
         return downLoadUrl;
     }
@@ -44,12 +35,11 @@ public class VersionData {
     public VersionData(String versionName, int versionCode, String description, String downLoadUrl) {
         this.versionName = versionName;
         this.versionCode = versionCode;
-        this.description = description;
         this.downLoadUrl = downLoadUrl;
     }
 
     @Override
     public String toString() {
-        return "versionName=" + versionName + " versionCode=" + versionCode + " description=" + description + " downLoadUrl=" + downLoadUrl;
+        return "versionName=" + versionName + " versionCode=" + versionCode + " downLoadUrl=" + downLoadUrl;
     }
 }

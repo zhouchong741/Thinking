@@ -8,9 +8,9 @@
         android:id="@+id/wave_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#e0e0e0"
-        wave:above_wave_color="@android:color/white"
-        wave:blow_wave_color="@android:color/white"
+        android:background="@mipmap/bbg"
+        wave:above_wave_color="@color/above_wave_color"
+        wave:blow_wave_color="@color/blow_wave_color"
         wave:progress="0"
         wave:wave_height="middle"
         wave:wave_hz="normal"
@@ -30,10 +30,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:max="100"
+        android:maxHeight="4dp"
+        android:minHeight="4dp"
         android:paddingBottom="30dp"
         android:progress="0"
-        android:thumb="@drawable/seekbar_thumb"/>
-
-
+        /><!--进度条颜色-->
+    <!--android:thumb="@drawable/seekbar_thumb"-->
 </FrameLayout>
 

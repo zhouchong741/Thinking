@@ -2,9 +2,16 @@
 <resources>
     <color name="colorPrimary">#03a9f4</color>
     <color name="colorPrimaryDark">#0288d1</color>
-    <color name="colorAccent">#fff</color>
-    <color name="actionMenuColor">#fff</color>
+    <!--滑动进度条滑动后显示的颜色-->
+    <color name="colorAccent">#03a9f4</color>
+    <!---->
+    <color name="actionMenuColor">#03a9f4</color>
 
     <color name="tv_color">#e0e0e0</color>
     <color name="iv_color">#e0e0e0</color>
+
+
+    <color name="above_wave_color">#0288d1</color>
+    <color name="blow_wave_color">#03a9f4</color>
+
 </resources>

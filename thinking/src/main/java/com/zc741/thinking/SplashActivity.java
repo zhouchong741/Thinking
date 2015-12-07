@@ -23,7 +23,6 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
         initViews();
     }
 
@@ -50,8 +49,6 @@ public class SplashActivity extends AppCompatActivity {
 
                     turnToMainActivity();
                 }
-
-
                 //获取到当前的progress的值
                 progress_value = String.valueOf(progress);
                 //System.out.println(progress_value);
@@ -79,8 +76,21 @@ public class SplashActivity extends AppCompatActivity {
     private void turnToMainActivity() {
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.in_from_down, R.anim.out_to_up);
         //结束当前页，当进入MainActivity后返回时，会销毁，直接退出app
-        finish();
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(500);
+                    System.out.println("sleep 500ms");
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        t.start();
     }
 
 

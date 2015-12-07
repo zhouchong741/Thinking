@@ -91,12 +91,11 @@ public class VersionActivity extends BaseActivity {
     private void parseData(String result) {
         Gson gson = new Gson();
         mVersionData = gson.fromJson(result, VersionData.class);
-        System.out.println("code==" + mVersionData.getVersionCode());
+        //System.out.println("code==" + mVersionData.getVersionCode());
 
         /*
          versionName=2.0
          versionCode=2
-         description=有新版本，建议更新
          downLoadUrl=http://www.zc741.com/thinking/Thinking.apk
          */
     }
@@ -107,7 +106,7 @@ public class VersionActivity extends BaseActivity {
          * mVersionData.getVersionCode(); 服务器版本
          * mVersionCode; 当前版本
          */
-        if (mVersionData.getVersionCode() >= mVersionCode) {
+        if (mVersionData.getVersionCode() > mVersionCode) {
             alertDialog();
         } else {
             Toast.makeText(VersionActivity.this, "当前是最新版本哟！", Toast.LENGTH_SHORT).show();
@@ -122,7 +121,6 @@ public class VersionActivity extends BaseActivity {
         builder.setPositiveButton("下载", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //System.out.println("下载了。。。。");
                 dialog.dismiss();
                 //进行下载程序XUtils
                 downloadAPK();
@@ -131,7 +129,6 @@ public class VersionActivity extends BaseActivity {
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //System.out.println("取消下载了。。。。");
                 dialog.dismiss();
             }
         });
@@ -152,9 +149,6 @@ public class VersionActivity extends BaseActivity {
                 intent.addCategory(Intent.CATEGORY_DEFAULT);
                 intent.setDataAndType(Uri.fromFile(responseInfo.result), "application/vnd.android.package-archive");
                 startActivity(intent);
-
-                //删除apk文件
-                deleteAPK();
             }
 
             @Override
@@ -172,19 +166,6 @@ public class VersionActivity extends BaseActivity {
                 e.printStackTrace();
             }
         });
-    }
-
-    //删除apk
-    private void deleteAPK() {
-        PackageManager packageManager = getPackageManager();
-        try {
-            PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
-            String currentVersion = packageInfo.versionName;
-            System.out.println("currentVersion" + currentVersion);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("删除apk");
     }
 
     public void initItem() {

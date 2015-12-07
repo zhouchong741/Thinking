@@ -16,34 +16,11 @@
     <!-- Base application theme. -->
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--<item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowFullscreen">true</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="ItemStyle">
-        <!--<android.support.v4.widget.DrawerLayout
-            android:id="@+id/drawer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="com.mingle.service.ui.MainActivity">
-
-            <FrameLayout
-                android:id="@+id/menuLL"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="start"
-                android:background="@android:color/white"
-                android:clickable="true"
-                android:orientation="vertical">
-
-                <include layout="@layout/item_list"/>
-
-            </FrameLayout>
-        </android.support.v4.widget.DrawerLayout>-->
-
     </style>
 
 </resources>

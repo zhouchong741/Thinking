@@ -8,14 +8,59 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_height="wrap_content">
+        android:scrollbars="vertical"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="关于Thinking，以下几点需要和您说的"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="1. Thinking是一个让你能够思考的工具，在这里你可以思考每天所提出的问题，这些问题时没有一个确定的答案，每个人都可以有不同的声音。"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="2. Thinking每天只会更新一次，并且是不可以查看前一天的内容，希望你可以珍惜时间，多去思考。"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="3. Thinking为了能够让你有更多的思考时间，每天打开Thinking的时间会非常短暂，只有思考的问题和一张配图。"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="4. Thinking也希望你可以投稿，把你的问题展示出来，让Thinkinger一起来思考。"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="关于Thinking"/>
+            android:padding="10dp"
+            android:text="关于开发的内容想和Thinkinger说说"
+            android:textSize="18dp"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="1. Thinking不会占用手机很多的内存，就算是在后台开着也不会给手机使用有很多影响。"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="2. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能。"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="3. Thinking的使用时必需要连接网络的，Thinking的问题和图片，每次在你打开的时候会请求一次，不会保存在本地，当你把Thinking彻底退出的时候，不会有痕迹留下。"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="4. Thinking是为了不想在Thinkinger的手机内留下，让Thinkinger的手机保持一个干净的状态"/>
+
+        <TextView
+            style="@style/AboutStyle"
+            android:text="5. Thinking唯一留下的是每天的那张图片，因为考虑到Thinkinger可能会去分享，所有，那张图片会保存在手机内存的根目录下。Thinkinger可以自由的删除"/>
+
+
     </LinearLayout>
 
     <FrameLayout

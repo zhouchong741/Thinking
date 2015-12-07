@@ -112,6 +112,4 @@ public class SplashActivity extends AppCompatActivity {
         };
         t.start();
     }
-
-
 }

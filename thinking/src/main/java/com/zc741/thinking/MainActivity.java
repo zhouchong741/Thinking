@@ -388,19 +388,19 @@ public class MainActivity extends AppCompatActivity {
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
         oks.setTitle(getString(R.string.share));
         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-        oks.setTitleUrl("http://zc741.com/");//之后写成下载的路径
+        oks.setTitleUrl("http://www.zc741.com/thinking/index.html");//之后写成下载的路径
         // text是分享文本，所有平台都需要这个字段
         oks.setText(mData.getWord());
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数  //图片要缓存到这里
         oks.setImagePath(Environment.getExternalStorageDirectory().getPath() + "/cache.png");//确保SDcard下面存在此张图片 "/sdcard/test.jpg"
         // url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl("http://www.zc741.com/");//分享给好友显示的
+        oks.setUrl("http://www.zc741.com/thinking/index.html");//分享给好友显示的
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
         oks.setComment("Thinking");
         // site是分享此内容的网站名称，仅在QQ空间使用
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-        oks.setSiteUrl("http://zc741.com/thinking/Thinking.apk");
+        oks.setSiteUrl("http://www.zc741.com/thinking/index.html");
 
         /*判断是分享给微信朋友还是微信朋友圈来分享不同的内容*/
         /*oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {

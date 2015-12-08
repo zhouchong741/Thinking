@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.zc741.ke"
+        applicationId "com.zc741.thinking"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -34,6 +34,6 @@ dependencies {
     compile files('libs/ShareSDK-SinaWeibo-2.6.5.jar')
     compile files('libs/ShareSDK-Wechat-2.6.5.jar')
     compile files('libs/ShareSDK-Wechat-Core-2.6.5.jar')
-    compile files('libs/ShareSDK-Wechat-Favorite-2.6.5.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.6.5.jar')
+    compile files('libs/ShareSDK-Email-2.6.5.jar')
 }

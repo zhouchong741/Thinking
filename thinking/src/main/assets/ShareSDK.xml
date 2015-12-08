@@ -58,7 +58,7 @@
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <SinaWeibo
         Id="1"
-        SortId="4"
+        SortId="3"
         AppKey="944794131"
         AppSecret="c7c80d3f498cda85e65ff4d88831842a"
         RedirectUrl="http://open.weibo.com"
@@ -76,7 +76,7 @@
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <QZone
         Id="3"
-        SortId="6"
+        SortId="4"
         AppId="100371282"
         AppKey="aed9b0303e3ed1e27bae87c33761161d"
         ShareByAppClient="false"
@@ -97,22 +97,22 @@
     <Wechat
         Id="4"
         SortId="1"
-        AppId="wx4868b35061f87885"
-        AppSecret="64020361b8ec4c99936c0e3999a9f249"
-        BypassApproval="true"
+        AppId="wxd30a7251997bb512"
+        AppSecret="d4624c36b6795d1d99dcf0547af5443d"
+        BypassApproval="false"
         Enable="true" />
-    
+
     <WechatMoments
         Id="5"
         SortId="2"
-        AppId="wx4868b35061f87885"
-        AppSecret="64020361b8ec4c99936c0e3999a9f249"
-        BypassApproval="true"
+        AppId="wxd30a7251997bb512"
+        AppSecret="d4624c36b6795d1d99dcf0547af5443d"
+        BypassApproval="false"
         Enable="true" />
         
 	<WechatFavorite
         Id="6"
-        SortId="3"
+        SortId="12"
         AppId="wx4868b35061f87885"
         AppSecret="64020361b8ec4c99936c0e3999a9f249"
         Enable="true" />
@@ -160,7 +160,7 @@
     
     <Email
         Id="12" 
-        SortId="12"
+        SortId="6"
         Enable="true" />
     
     <ShortMessage

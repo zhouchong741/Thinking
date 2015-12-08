@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+    private OnekeyShare oks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +98,16 @@ public class MainActivity extends AppCompatActivity {
 
     //执行onStart()方法 调用getDataFromServer()一次
     @Override
-    protected void onStart() {
-        super.onStart();
-        getDataFromServer();
+    protected void onRestart() {
+        super.onRestart();
+
+        //判断当前MainActivity是为更新的值
+        if ((Environment.getExternalStorageDirectory().getPath() + "/cache.png") == null) {
+            getDataFromServer();
+        } else {
+            System.out.println(Environment.getExternalStorageDirectory().getPath()+"/cache.png");
+            return;
+        }
     }
 
     private void initDrawerToggle() {
@@ -237,6 +245,7 @@ public class MainActivity extends AppCompatActivity {
                 //System.out.println("result=" + result);
                 parseJson(result);
             }
+
             @Override
             public void onFailure(HttpException e, String s) {
                 Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
@@ -244,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    
+
     /**
      * 解析json
      *
@@ -268,8 +277,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //System.out.println(mData.getWord());//这是第一天的内容，作为测试用的。这是第一天的内容，作为测试用的。这是第一天的内容，作为测试用的。
-        //System.out.println(mData.getPic());//http://www.zc741.com/thinking/pictures/bbg.png
         System.out.println(mURL);//http://www.zc741.com/thinking/pictures/bbg.png
 
         //缓存图片
@@ -370,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
     //实现分享功能
     private void shareFunction() {
         ShareSDK.initSDK(this);
-        OnekeyShare oks = new OnekeyShare();
+        oks = new OnekeyShare();
         //关闭sso授权
         oks.disableSSOWhenAuthorize();
 
@@ -381,19 +388,33 @@ public class MainActivity extends AppCompatActivity {
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
         oks.setTitle(getString(R.string.share));
         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-        oks.setTitleUrl("http://sharesdk.cn");
+        oks.setTitleUrl("http://zc741.com/");//之后写成下载的路径
         // text是分享文本，所有平台都需要这个字段
         oks.setText(mData.getWord());
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数  //图片要缓存到这里
         oks.setImagePath(Environment.getExternalStorageDirectory().getPath() + "/cache.png");//确保SDcard下面存在此张图片 "/sdcard/test.jpg"
         // url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl("http://sharesdk.cn");
+        oks.setUrl("http://www.zc741.com/");//分享给好友显示的
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-        oks.setComment("我是测试评论文本");
+        oks.setComment("Thinking");
         // site是分享此内容的网站名称，仅在QQ空间使用
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-        oks.setSiteUrl("http://sharesdk.cn");
+        oks.setSiteUrl("http://zc741.com/thinking/Thinking.apk");
+
+        /*判断是分享给微信朋友还是微信朋友圈来分享不同的内容*/
+        /*oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
+            @Override
+            public void onShare(Platform platform, cn.sharesdk.framework.Platform.ShareParams paramsToShare) {
+                System.out.println(platform.getName().toString());
+                if ("WechatMoments".equals(platform.getName())) {
+                    paramsToShare.setText(mData.getWord());
+                    oks.setImagePath(Environment.getExternalStorageDirectory().getPath() + "/cache.png");
+                    System.out.println("没有卵用的");
+                }
+
+            }
+        });*/
 
 // 启动分享GUI
         oks.show(this);

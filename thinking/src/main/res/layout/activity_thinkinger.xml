@@ -30,7 +30,7 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="2. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能。"/>
+                android:text="2. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能,让Thinking在您手机的占用控件降到最低。"/>
 
             <TextView
                 style="@style/AboutStyle"

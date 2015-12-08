@@ -8,13 +8,6 @@
 
 package cn.sharesdk.onekeyshare.theme.classic;
 
-import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
-import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,12 +24,23 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.ShareSDK;
+
 import com.mob.tools.gui.ViewPagerAdapter;
 import com.mob.tools.gui.ViewPagerClassic;
 import com.mob.tools.utils.UIHandler;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.CustomerLogo;
+
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
 
 /** platform logo list gridview */
 @SuppressWarnings("deprecation")
@@ -109,7 +113,7 @@ public class PlatformGridView extends LinearLayout implements
 		float whR = scrW / scrH;
 		if (whR < 0.63) {
 			COLUMN_PER_LINE = 3;
-			LINE_PER_PAGE = 3;
+			LINE_PER_PAGE = 1;
 		} else if (whR < 0.75) {
 			COLUMN_PER_LINE = 3;
 			LINE_PER_PAGE = 2;

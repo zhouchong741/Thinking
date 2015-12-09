@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:background="#03a9f4"
+        android:background="#7CCCCB"
         android:src="@mipmap/logo"/>
 
     <ListView

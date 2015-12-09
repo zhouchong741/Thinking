@@ -190,7 +190,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 //		if (resId > 0) {
 //			llTitle.setBackgroundResource(resId);
 //		}
-        llTitle.setBackgroundColor(Color.rgb(3, 169, 244));//修改分享内容获取页的头部 #03a9f4
+        llTitle.setBackgroundColor(Color.rgb(124, 204, 203));//修改分享内容获取页的头部 #03a9f4
         llTitle.getBtnBack().setOnClickListener(this);
         int resId = getStringRes(activity, "ssdk_oks_multi_share");
         if (resId > 0) {

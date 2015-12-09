@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#03a9f4</color>
-    <color name="colorPrimaryDark">#0288d1</color>
+    <color name="colorPrimary">#7CCCCB</color>
+    <color name="colorPrimaryDark">#71B0B1</color>
     <!--滑动进度条滑动后显示的颜色-->
-    <color name="colorAccent">#03a9f4</color>
+    <color name="colorAccent">#7CCCCB</color>
     <!---->
     <color name="actionMenuColor">#03a9f4</color>
 
@@ -11,8 +11,12 @@
     <color name="iv_color">#e0e0e0</color>
 
 
-    <color name="above_wave_color">#0288d1</color>
-    <color name="blow_wave_color">#03a9f4</color>
-    <color name="sina_top">#03a9f4</color>
+    <color name="above_wave_color">#71B0B1</color>
+    <color name="blow_wave_color">#7CCCCB</color>
+    <color name="sina_top">#7CCCCB</color>
+    <color name="item_color">#1CCCCC</color>
 
+
+    <!--<color name="above_wave_color">#0288d1</color>
+    <color name="blow_wave_color">#03a9f4</color>-->
 </resources>

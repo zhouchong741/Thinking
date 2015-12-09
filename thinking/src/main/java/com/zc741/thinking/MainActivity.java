@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("position==" + position + "; items==" + items[position] + "; pics==" + pics[position]);
                 switch (position) {
                     case 0:
+
                         Intent intent0 = new Intent(getApplicationContext(), AboutActivity.class);
                         startActivity(intent0);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);

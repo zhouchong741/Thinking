@@ -98,7 +98,7 @@
             android:label="@string/version">
         </activity>
         <activity
-            android:name=".ItemDrawerleft.ThinkingerActivity"
+            android:name=".ItemDrawerleft.ThinkerActivity"
             android:label="@string/Thinkinger">
         </activity>
     </application>

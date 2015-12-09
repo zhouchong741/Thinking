@@ -10,9 +10,10 @@
     <color name="tv_color">#e0e0e0</color>
     <color name="iv_color">#e0e0e0</color>
 
-
+    <!--波浪-->
     <color name="above_wave_color">#71B0B1</color>
-    <color name="blow_wave_color">#7CCCCB</color>
+    <color name="blow_wave_color">#1CCCCC</color>
+
     <color name="sina_top">#7CCCCB</color>
     <color name="item_color">#1CCCCC</color>
 

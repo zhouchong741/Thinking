@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="开始思考吧！"
-        android:textSize="20sp"/>
+        android:textSize="17sp"/>
 
     <SeekBar
         android:id="@+id/seek_bar"
@@ -36,7 +36,5 @@
         android:minHeight="4dp"
         android:paddingBottom="30dp"
         android:progress="0"/>
-    <!--进度条颜色-->
-    <!--android:thumb="@drawable/seekbar_thumb"-->
 </FrameLayout>
 

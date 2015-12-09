@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.zc741.thinking.R;
 import com.zc741.thinking.domain.Utils.DpToPx;
 
-public class ThinkingerActivity extends BaseActivity {
+public class ThinkerActivity extends BaseActivity {
     private LinearLayout mLinearLayout;
     @Override
     public void setContentView(int layoutResID) {

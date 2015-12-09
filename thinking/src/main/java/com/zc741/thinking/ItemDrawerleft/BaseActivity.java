@@ -138,7 +138,7 @@ public class BaseActivity extends AppCompatActivity {
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
                     case 4:
-                        Intent intent4 = new Intent(getApplicationContext(), ThinkingerActivity.class);
+                        Intent intent4 = new Intent(getApplicationContext(), ThinkerActivity.class);
                         startActivity(intent4);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;

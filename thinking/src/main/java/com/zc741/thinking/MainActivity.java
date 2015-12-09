@@ -38,7 +38,7 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.zc741.thinking.ItemDrawerleft.AboutActivity;
 import com.zc741.thinking.ItemDrawerleft.ContributeActivity;
 import com.zc741.thinking.ItemDrawerleft.PublishActivity;
-import com.zc741.thinking.ItemDrawerleft.ThinkingerActivity;
+import com.zc741.thinking.ItemDrawerleft.ThinkerActivity;
 import com.zc741.thinking.ItemDrawerleft.VersionActivity;
 import com.zc741.thinking.domain.Content;
 import com.zc741.thinking.domain.Utils.DpToPx;
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;
                     case 4:
-                        Intent intent4 = new Intent(getApplicationContext(), ThinkingerActivity.class);
+                        Intent intent4 = new Intent(getApplicationContext(), ThinkerActivity.class);
                         startActivity(intent4);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         break;

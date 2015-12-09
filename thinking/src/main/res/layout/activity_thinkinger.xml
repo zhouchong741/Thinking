@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="关于开发Thinking想和Thinkinger说说"
+                android:text="关于开发Thinking想和Thinker说说"
                 android:textSize="18dp"/>
 
             <TextView
@@ -34,11 +34,11 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="3. Thinking唯一留下的是每天的那张图片，因为考虑到Thinkinger可能会去分享，所以图片会保存在手机内存的根目录下。Thinkinger可以自由的删除"/>
+                android:text="3. Thinking唯一留下的是每天的那张图片，因为考虑到Thinker可能会去分享，所以图片会保存在手机内存的根目录下。Thinker可以自由的删除"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="4. Thinkinger在更新和下载版本时，如果Thinking提示当前已经是最新版本，Thinking会删除手机里存在的源文件，保证Thinkinger的手机是在一个非常干净的状态。"/>
+                android:text="4. Thinker在更新和下载版本时，如果Thinking提示当前已经是最新版本，Thinking会删除手机里存在的源文件，保证Thinker的手机是在一个非常干净的状态。"/>
         </LinearLayout>
     </ScrollView>
 

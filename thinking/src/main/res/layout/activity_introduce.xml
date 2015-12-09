@@ -35,7 +35,7 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="4. Thinking也希望你可以投稿，把你的问题提出来，让Thinkinger一起来思考。"/>
+                android:text="4. Thinking也希望你可以投稿，把你的问题提出来，让Thinker一起来思考。"/>
 
         </LinearLayout>
     </ScrollView>

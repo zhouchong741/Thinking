@@ -26,27 +26,19 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="1. Thinking不会占用手机很多的内存，就算是在后台开着也不会给手机使用有很多影响。"/>
+                android:text="1. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能,让Thinking在您手机的占用空间降到最低。"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="2. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能,让Thinking在您手机的占用控件降到最低。"/>
+                android:text="2. Thinking的使用时必需是要连接网络的，Thinking的问题和图片，每次在你打开的时候会请求一次，不会保存在本地，当Thinking彻底退出的时候，不会有痕迹留下。"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="3. Thinking的使用时必需要连接网络的，Thinking的问题和图片，每次在你打开的时候会请求一次，不会保存在本地，当你把Thinking彻底退出的时候，不会有痕迹留下。"/>
+                android:text="3. Thinking唯一留下的是每天的那张图片，因为考虑到Thinkinger可能会去分享，所以图片会保存在手机内存的根目录下。Thinkinger可以自由的删除"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="4. Thinking是为了不想在Thinkinger的手机内留下，让Thinkinger的手机保持一个干净的状态"/>
-
-            <TextView
-                style="@style/AboutStyle"
-                android:text="5. Thinking唯一留下的是每天的那张图片，因为考虑到Thinkinger可能会去分享，所有，那张图片会保存在手机内存的根目录下。Thinkinger可以自由的删除"/>
-
-            <TextView
-                style="@style/AboutStyle"
-                android:text="6. Thinking在更新下载版本的时候，如果Thinking提示当前已经是最新版本，那么回删除手机里存在的Thinking源文件，保证Thinking的手机是在一个非常干净的状态。"/>
+                android:text="4. Thinkinger在更新和下载版本时，如果Thinking提示当前已经是最新版本，Thinking会删除手机里存在的源文件，保证Thinkinger的手机是在一个非常干净的状态。"/>
         </LinearLayout>
     </ScrollView>
 

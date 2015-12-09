@@ -23,7 +23,7 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="1. Thinking是一个让你能够思考的工具，在这里你可以思考每天所提出的问题，这些问题时没有一个确定的答案，每个人都可以有不同的声音。"/>
+                android:text="1. Thinking是一个让你能够思考的工具，在这里你可以思考每天所提出的问题，这些问题没有一个确切的答案，每个人都可以有不同的声音。"/>
 
             <TextView
                 style="@style/AboutStyle"
@@ -31,11 +31,11 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="3. Thinking为了能够让你有更多的思考时间，每天打开Thinking的时间会非常短暂，只有思考的问题和一张配图。"/>
+                android:text="3. Thinking为了能够让你有更多的思考时间，Thinking每天提供的内容只有思考的问题和一张配图。"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="4. Thinking也希望你可以投稿，把你的问题展示出来，让Thinkinger一起来思考。"/>
+                android:text="4. Thinking也希望你可以投稿，把你的问题提出来，让Thinkinger一起来思考。"/>
 
         </LinearLayout>
     </ScrollView>

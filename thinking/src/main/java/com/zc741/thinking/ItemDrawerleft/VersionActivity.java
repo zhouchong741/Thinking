@@ -78,7 +78,6 @@ public class VersionActivity extends BaseActivity {
 
             @Override
             public void onFailure(HttpException e, String s) {
-                System.out.println("解析失败");
                 System.out.println(s);
                 e.printStackTrace();
             }
@@ -99,9 +98,27 @@ public class VersionActivity extends BaseActivity {
          * mVersionCode; 当前版本
          */
         if (mVersionData.getVersionCode() > mVersionCode) {
+            deleteAPK();
             alertDialog();
         } else {
             Toast.makeText(VersionActivity.this, "当前是最新版本哟！", Toast.LENGTH_SHORT).show();
+        }
+
+        if (mVersionData.getVersionCode() == mVersionCode) {
+            //删除 Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk" 下的Thinking.apk 文件
+            //deleteFile(Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk");
+            deleteAPK();
+        }
+    }
+
+    //删除 Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk" 下的Thinking.apk 文件
+    private void deleteAPK() {
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk");
+        if (file.exists()) {
+            file.delete();
+            System.out.println("删除文件");
+        } else {
+            return;
         }
     }
 
@@ -135,7 +152,8 @@ public class VersionActivity extends BaseActivity {
         utils.download(uri, mTargetPath, true, new RequestCallBack<File>() {
             @Override
             public void onSuccess(ResponseInfo<File> responseInfo) {
-                //System.out.println("下载成功");
+                System.out.println("responseInfo==" + responseInfo);
+
                 //成功后跳转到安装界面
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -150,6 +168,11 @@ public class VersionActivity extends BaseActivity {
                 long percent = current * 100 / total;
                 TextView tv_download = (TextView) findViewById(R.id.tv_download);
                 tv_download.setText("下载进度:" + percent + "%");
+
+                if (current == total) {
+                    tv_download.setText("");
+                    System.out.println("不显示下载多少的文字");
+                }
             }
 
             @Override

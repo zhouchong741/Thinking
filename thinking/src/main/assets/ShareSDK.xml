@@ -63,7 +63,8 @@
         AppSecret="c7c80d3f498cda85e65ff4d88831842a"
         RedirectUrl="http://open.weibo.com"
         ShareByAppClient="false"
-        Enable="true" />
+        Enable="true
+        " />
 
     <TencentWeibo
         Id="2" 

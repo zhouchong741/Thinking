@@ -401,21 +401,6 @@ public class MainActivity extends AppCompatActivity {
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
         oks.setSiteUrl("http://www.zc741.com/thinking/index.html");
-
-        /*判断是分享给微信朋友还是微信朋友圈来分享不同的内容*/
-        /*oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
-            @Override
-            public void onShare(Platform platform, cn.sharesdk.framework.Platform.ShareParams paramsToShare) {
-                System.out.println(platform.getName().toString());
-                if ("WechatMoments".equals(platform.getName())) {
-                    paramsToShare.setText(mData.getWord());
-                    oks.setImagePath(Environment.getExternalStorageDirectory().getPath() + "/cache.png");
-                    System.out.println("没有卵用的");
-                }
-
-            }
-        });*/
-
 // 启动分享GUI
         oks.show(this);
 

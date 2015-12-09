@@ -43,6 +43,10 @@
             <TextView
                 style="@style/AboutStyle"
                 android:text="5. Thinking唯一留下的是每天的那张图片，因为考虑到Thinkinger可能会去分享，所有，那张图片会保存在手机内存的根目录下。Thinkinger可以自由的删除"/>
+
+            <TextView
+                style="@style/AboutStyle"
+                android:text="6. Thinking在更新下载版本的时候，如果Thinking提示当前已经是最新版本，那么回删除手机里存在的Thinking源文件，保证Thinking的手机是在一个非常干净的状态。"/>
         </LinearLayout>
     </ScrollView>
 

@@ -16,7 +16,7 @@
         <!--更新的图片-->
         <ImageView
             android:layout_width="match_parent"
-            android:src="@mipmap/bbg"
+            android:src="@mipmap/default_state"
             android:padding="4dp"
             android:layout_height="240dp"/>
         <TextView

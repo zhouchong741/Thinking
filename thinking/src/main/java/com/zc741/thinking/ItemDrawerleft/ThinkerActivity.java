@@ -31,10 +31,10 @@ public class ThinkerActivity extends BaseActivity {
                 R.mipmap.ic_markunread_black_18dp
         };
         final String[] items = new String[]{
-                "         About",
-                "         Advice",
-                "         Contribute",
-                "         Version"
+                "         关于",
+                "         建议",
+                "         投稿",
+                "         版本"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);

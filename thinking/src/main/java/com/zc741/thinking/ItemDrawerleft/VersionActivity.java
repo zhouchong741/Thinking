@@ -46,6 +46,9 @@ public class VersionActivity extends BaseActivity {
         showVersion();
         //解析更新的json
         getDataFromServer();
+
+        //初始化布局
+        initItem();
     }
 
     private void showVersion() {
@@ -192,10 +195,10 @@ public class VersionActivity extends BaseActivity {
                 R.mipmap.ic_markunread_black_18dp
         };
         final String[] items = new String[]{
-                "         About",
-                "         Advice",
-                "         Contribute",
-                "         Thinkinger"
+                "         关于",
+                "         建议",
+                "         投稿",
+                "         给您的一封信"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);

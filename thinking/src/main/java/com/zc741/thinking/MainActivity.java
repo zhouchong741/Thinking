@@ -128,11 +128,11 @@ public class MainActivity extends AppCompatActivity {
                 R.mipmap.ic_markunread_black_18dp
         };
         final String[] items = new String[]{
-                "         About",
-                "         Advice",
-                "         Contribute",
-                "         Version",
-                "         Thinkinger"
+                "         关于",
+                "         建议",
+                "         投稿",
+                "         版本",
+                "         给您的一封信"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);

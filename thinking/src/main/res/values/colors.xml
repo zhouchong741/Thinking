@@ -12,7 +12,7 @@
 
     <!--波浪-->
     <color name="above_wave_color">#71B0B1</color>
-    <color name="blow_wave_color">#1CCCCC</color>
+    <color name="blow_wave_color">#00F5FF</color>
 
     <color name="sina_top">#7CCCCB</color>
     <color name="item_color">#1CCCCC</color>

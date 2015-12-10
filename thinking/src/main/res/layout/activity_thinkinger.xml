@@ -30,7 +30,7 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="2. Thinking的使用时必需是要连接网络的，Thinking的问题和图片，每次在你打开的时候会请求一次，不会保存在本地，当Thinking彻底退出的时候，不会有痕迹留下。"/>
+                android:text="2. Thinking的使用是必需要连接网络的，Thinking的问题和图片在打开的时候会请求一次网络。"/>
 
             <TextView
                 style="@style/AboutStyle"
@@ -38,7 +38,7 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="4. Thinker在更新和下载版本时，如果Thinking提示当前已经是最新版本，Thinking会删除手机里存在的源文件，保证Thinker的手机是在一个非常干净的状态。"/>
+                android:text="4. Thinker在更新版本时，如果Thinking提示当前已经是最新版本，Thinking会删除手机里存在的源文件，保证Thinker的手机是在干净的状态。"/>
         </LinearLayout>
     </ScrollView>
 

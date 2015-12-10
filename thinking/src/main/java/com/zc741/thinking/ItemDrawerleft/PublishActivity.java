@@ -20,6 +20,8 @@ public class PublishActivity extends BaseActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_publish);
+
+        initItem();
     }
     public void initItem() {
         //侧边栏listItem
@@ -30,10 +32,10 @@ public class PublishActivity extends BaseActivity {
                 R.mipmap.ic_markunread_black_18dp
         };
         final String[] items = new String[]{
-                "         About",
-                "         Advice",
-                "         Version",
-                "         Thinkinger"
+                "         关于",
+                "         建议",
+                "         版本",
+                "         给您的一封信"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);

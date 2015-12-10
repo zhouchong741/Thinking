@@ -44,6 +44,7 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
+
     private void initViews() {
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         waveView = (WaveView) findViewById(R.id.wave_view);
@@ -80,7 +81,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 //将字符串类型转换为int类型
                 int i = Integer.parseInt(progress_value);
-                if (i != 100) {
+                if (i > 50 & i != 100) {
                     //提示用户
                     Toast.makeText(SplashActivity.this, "滑动到最右哟！", Toast.LENGTH_SHORT).show();
                 }

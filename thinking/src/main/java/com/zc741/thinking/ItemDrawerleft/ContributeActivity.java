@@ -21,6 +21,8 @@ public class ContributeActivity extends BaseActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_suggestion);
+
+        initItem();
     }
 
     public void initItem() {
@@ -32,10 +34,10 @@ public class ContributeActivity extends BaseActivity {
                 R.mipmap.ic_markunread_black_18dp
         };
         final String[] items = new String[]{
-                "         About",
-                "         Contribute",
-                "         Version",
-                "         Thinkinger"
+                "         关于",
+                "         投稿",
+                "         版本",
+                "         给您的一封信"
         };
 
         mListview = (ListView) findViewById(R.id.lv_left);

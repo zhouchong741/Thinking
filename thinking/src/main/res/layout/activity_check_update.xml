@@ -37,7 +37,7 @@
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
             android:text="检查更新"
-            android:textColor="@android:color/white"
+            android:textColor="@drawable/version_button_color"
             android:textSize="18sp"/>
 
         <TextView

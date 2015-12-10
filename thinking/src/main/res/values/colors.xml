@@ -17,7 +17,7 @@
     <color name="sina_top">#7CCCCB</color>
     <color name="item_color">#1CCCCC</color>
 
+    <color name="version_button">#fff</color>
+    <color name="version_button_press">#cccccc</color>
 
-    <!--<color name="above_wave_color">#0288d1</color>
-    <color name="blow_wave_color">#03a9f4</color>-->
 </resources>

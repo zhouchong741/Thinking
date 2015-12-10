@@ -71,7 +71,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <!-- 调用新浪原生SDK，需要注册的回调activity -->
-        <activity
+        <!--<activity
             android:name="cn.sharesdk.sina.weibo.SinaActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
@@ -79,7 +79,7 @@
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-        </activity>
+        </activity>-->
         <!-- ShareSDK -->
         <activity
             android:name=".ItemDrawerleft.AboutActivity"

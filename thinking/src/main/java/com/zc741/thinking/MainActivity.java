@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -30,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -44,9 +44,6 @@ import com.zc741.thinking.domain.Content;
 import com.zc741.thinking.domain.Utils.DpToPx;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 
 import cn.sharesdk.framework.ShareSDK;
@@ -94,20 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         //ShareSDK
         ShareSDK.initSDK(this);
-    }
-
-    //执行onStart()方法 调用getDataFromServer()一次
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-        //判断当前MainActivity是为更新的值
-        if ((Environment.getExternalStorageDirectory().getPath() + "/cache.png") == null) {
-            getDataFromServer();
-        } else {
-            System.out.println(Environment.getExternalStorageDirectory().getPath()+"/cache.png");
-            return;
-        }
     }
 
     private void initDrawerToggle() {
@@ -226,11 +209,11 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             //实现Home键效果
-            //super.onBackPressed();这句话一定要注掉,不然又去调用默认的back处理方式了
-            Intent i = new Intent(Intent.ACTION_MAIN);
+            super.onBackPressed();//这句话一定要注掉,不然又去调用默认的back处理方式了
+           /* Intent i = new Intent(Intent.ACTION_MAIN);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.addCategory(Intent.CATEGORY_HOME);
-            startActivity(i);
+            startActivity(i);*/
         }
         overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
     }
@@ -271,78 +254,43 @@ public class MainActivity extends AppCompatActivity {
         mIv_pic = (ImageView) findViewById(R.id.iv_pic);
         mTv_word.setText(mData.getWord());
 
-        try {
-            mURL = new URL(mData.getPic());
-            mBitmap = BitmapFactory.decodeStream(mURL.openStream());
-            mIv_pic.setImageBitmap(mBitmap);
-        } catch (Exception e) {
-            e.printStackTrace();
+        BitmapUtils bitmapUtils = new BitmapUtils(this);
+        //解析的网络图片
+        bitmapUtils.display(mIv_pic, mData.getPic());
+
+        //下载图片到本地 以分享
+        File file = new File(Environment.getExternalStorageDirectory().getPath()+"/cache.png");
+        if (file.exists()) {
+            System.out.println("存在,不用下载");
+        } else {
+            System.out.println("图片不存在，要下载");
+            cachePng();
         }
-        System.out.println(mURL);//http://www.zc741.com/thinking/pictures/bbg.png
-
-        //缓存图片
-        cachePNG();
     }
 
-    //缓存图片
-    private void cachePNG() {
-        //下载图片
-        String path = mURL + "";
-        final File file = new File(Environment.getExternalStorageDirectory().getPath(), "cache.png");
-
-        Thread t = new Thread() {
+    //下载图片到本地 以分享
+    private void cachePng() {
+        HttpUtils httpUtils = new HttpUtils();
+        String url = mData.getPic();
+        String downloadPath = Environment.getExternalStorageDirectory().getPath() + "/cache.png";
+        httpUtils.download(url, downloadPath, new RequestCallBack<File>() {
             @Override
-            public void run() {
+            public void onSuccess(ResponseInfo<File> responseInfo) {
 
-                try {
-                    HttpURLConnection conn = (HttpURLConnection) mURL.openConnection();
-                    //4.对连接对象进行初始化
-                    //设置请求方法，注意大写
-                    conn.setRequestMethod("GET");
-                    //设置连接超时
-                    conn.setConnectTimeout(5000);
-                    //设置读取超时
-                    conn.setReadTimeout(5000);
-                    //5.发送请求，与服务器建立连接
-                    conn.connect();
-
-                    if (conn.getResponseCode() == 200) {
-                        //获取服务器响应头中的流，流里的数据就是客户端请求的数据
-                        InputStream is = conn.getInputStream();
-
-                        //读取服务器返回的流里的数据，把数据写到本地文件，缓存起来
-
-                        FileOutputStream fos = new FileOutputStream(file);
-                        byte[] b = new byte[1024];
-                        int len = 0;
-                        while ((len = is.read(b)) != -1) {
-                            fos.write(b, 0, len);
-                        }
-                        fos.close();
-
-                        //读取出流里的数据，并构造成位图对象
-                        //流里已经没有数据了
-//							Bitmap bm = BitmapFactory.decodeStream(is);
-                        Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
-                        Message msg = new Message();
-                        //消息对象可以携带数据
-                        msg.obj = bm;
-                        msg.what = 1;
-                        //把消息发送至主线程的消息队列
-                        handler.sendMessage(msg);
-                    } else {
-                        Message msg = handler.obtainMessage();
-                        msg.what = 0;
-                        handler.sendMessage(msg);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
-        };
-        t.start();
-    }
 
+            @Override
+            public void onLoading(long total, long current, boolean isUploading) {
+                super.onLoading(total, current, isUploading);
+                System.out.println("下载了:" + current + "/" + total);
+            }
+
+            @Override
+            public void onFailure(HttpException e, String s) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

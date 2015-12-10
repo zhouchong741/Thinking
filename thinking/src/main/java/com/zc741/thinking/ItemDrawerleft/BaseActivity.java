@@ -6,7 +6,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.zc741.thinking.R;
@@ -18,7 +17,6 @@ public class BaseActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     ListView mListview;
-    private LinearLayout mLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +24,6 @@ public class BaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_suggestion);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-
-        //初始化侧边栏
-        //initItem();
 
         initDrawerToggle();
     }

@@ -3,6 +3,7 @@ package com.zc741.thinking;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.john.waveview.WaveView;
+
+import java.io.File;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,6 +30,18 @@ public class SplashActivity extends AppCompatActivity {
         checkNet();
 
         initViews();
+
+        //删除之前的cache.png
+        deletePng();
+    }
+
+    //删除之前的cache.png
+    private void deletePng() {
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/cache.png");
+        if (file.exists()) {
+            file.delete();
+            System.out.println("删除了之前的缓存");
+        }
     }
 
     //检查网络

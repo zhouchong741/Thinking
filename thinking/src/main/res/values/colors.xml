@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#7CCCCB</color>
     <color name="colorPrimaryDark">#71B0B1</color>
-    <!--滑动进度条滑动后显示的颜色-->
+    <!--滑动进度条滑动后显示的颜色  colorAccent会改变光标颜色、checkbox背景色等。基本上可以理解为控件的主色调。-->
     <color name="colorAccent">#7CCCCB</color>
     <!---->
     <color name="actionMenuColor">#03a9f4</color>

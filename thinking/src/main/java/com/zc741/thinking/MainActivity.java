@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
 
     //获取服务器数据
     private void getDataFromServer() {
-        HttpUtils utils = new HttpUtils();
+        HttpUtils utils =   new HttpUtils();
         String uri = "http://www.zc741.com/thinking/1.json";
         utils.send(HttpMethod.GET, uri, new RequestCallBack<String>() {
             @Override
@@ -238,7 +238,6 @@ public class MainActivity extends AppCompatActivity {
         BitmapUtils bitmapUtils = new BitmapUtils(this);
         //解析的网络图片
         bitmapUtils.display(mIv_pic, mData.getPic());
-
         //下载图片到本地 以分享
         File file = new File(Environment.getExternalStorageDirectory().getPath()+"/cache.png");
         if (file.exists()) {

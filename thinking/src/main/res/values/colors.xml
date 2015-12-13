@@ -17,7 +17,9 @@
     <color name="sina_top">#7CCCCB</color>
     <color name="item_color">#1CCCCC</color>
 
-    <color name="version_button">#fff</color>
-    <color name="version_button_press">#cccccc</color>
+    <color name="button_color">#7CCCCB</color>
+    <color name="button_text_color">#fff</color>
+    <!--点击水波的颜色-->
+    <color name="ripple_color">#55ffffff</color>
 
 </resources>

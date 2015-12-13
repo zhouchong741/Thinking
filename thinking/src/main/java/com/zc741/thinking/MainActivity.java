@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(HttpException e, String s) {
-                Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         });

@@ -21,19 +21,19 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="微信号:"/>
+                android:text="@string/weChatNum"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="zc741741forever"
+                android:text="@string/weChatNum_detail"
                 android:textIsSelectable="true"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="微信二维码"/>
+            android:text="@string/erweima"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
 
         <TextView
             style="@style/AboutStyle"
-            android:text="Thinkinger的建议请通过微信和我们联系"/>
+            android:text="@string/suggestion"/>
     </LinearLayout>
 
     <FrameLayout

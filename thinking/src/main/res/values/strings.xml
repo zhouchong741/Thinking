@@ -8,4 +8,23 @@
     <string name="publish">你的投稿</string>
     <string name="version">检查更新</string>
     <string name="Thinkinger">Thinkinger</string>
+    <string name="startThinking">开始思考吧！</string>
+    <string name="error_net">如果你看到了这些文字，着表示你的手机当前的网络可能有问题了哟！</string>
+    <string name="aboutThinking">关于Thinking，以下几点需要和您说的</string>
+    <string name="aboutThinking_1">1. Thinking是一个让你能够思考的工具，在这里你可以思考每天所提出的问题，这些问题没有一个确切的答案，每个人都可以有不同的声音。</string>
+    <string name="aboutThinking_2">2. Thinking每天只会更新一次，并且是不可以查看前一天的内容，希望你可以珍惜时间，多去思考。</string>
+    <string name="aboutThinking_3">3. Thinking为了能够让你有更多的思考时间，Thinking每天提供的内容只有思考的问题和一张配图。</string>
+    <string name="aboutThinking_4">4. Thinking也希望你可以投稿，把你的问题提出来，让Thinker一起来思考。</string>
+    <string name="weChatNum">微信号:</string>
+    <string name="weChatNum_detail">zc741741forever</string>
+    <string name="erweima">微信二维码</string>
+    <string name="suggestion">Thinkinger的建议请通过微信和我们联系</string>
+    <string name="your_publish">投稿请发送至邮箱</string>
+    <string name="Thinking_to_thinker">关于开发Thinking想和Thinker说说</string>
+    <string name="thinker_1">1. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能,让Thinking在您手机的占用空间降到最低。</string>
+    <string name="thinker_2">2. Thinking的使用是必需要连接网络的，Thinking的问题和图片在打开的时候会请求一次网络。</string>
+    <string name="thinker_3">3. Thinking唯一留下的是每天的那张图片，因为考虑到Thinker可能会去分享，所以图片会保存在手机内存的根目录下。Thinker可以自由的删除</string>
+    <string name="thinker_4">4. Thinker在更新版本时，如果Thinking提示当前已经是最新版本，Thinking会删除手机里存在的源文件，保证Thinker的手机是在干净的状态。</string>
+    <string name="currentBeta">当前版本:</string>
+    <string name="check_update">检查更新</string>
 </resources>

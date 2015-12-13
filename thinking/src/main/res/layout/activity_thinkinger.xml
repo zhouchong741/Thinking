@@ -21,24 +21,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="关于开发Thinking想和Thinker说说"
+                android:text="@string/Thinking_to_thinker"
                 android:textSize="18dp"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="1. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能,让Thinking在您手机的占用空间降到最低。"/>
+                android:text="@string/thinker_1"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="2. Thinking的使用是必需要连接网络的，Thinking的问题和图片在打开的时候会请求一次网络。"/>
+                android:text="@string/thinker_2"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="3. Thinking唯一留下的是每天的那张图片，因为考虑到Thinker可能会去分享，所以图片会保存在手机内存的根目录下。Thinker可以自由的删除"/>
+                android:text="@string/thinker_3"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="4. Thinker在更新版本时，如果Thinking提示当前已经是最新版本，Thinking会删除手机里存在的源文件，保证Thinker的手机是在干净的状态。"/>
+                android:text="@string/thinker_4"/>
         </LinearLayout>
     </ScrollView>
 

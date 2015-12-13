@@ -19,23 +19,23 @@
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="关于Thinking，以下几点需要和您说的"/>
+                android:text="@string/aboutThinking"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="1. Thinking是一个让你能够思考的工具，在这里你可以思考每天所提出的问题，这些问题没有一个确切的答案，每个人都可以有不同的声音。"/>
+                android:text="@string/aboutThinking_1"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="2. Thinking每天只会更新一次，并且是不可以查看前一天的内容，希望你可以珍惜时间，多去思考。"/>
+                android:text="@string/aboutThinking_2"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="3. Thinking为了能够让你有更多的思考时间，Thinking每天提供的内容只有思考的问题和一张配图。"/>
+                android:text="@string/aboutThinking_3"/>
 
             <TextView
                 style="@style/AboutStyle"
-                android:text="4. Thinking也希望你可以投稿，把你的问题提出来，让Thinker一起来思考。"/>
+                android:text="@string/aboutThinking_4"/>
 
         </LinearLayout>
     </ScrollView>

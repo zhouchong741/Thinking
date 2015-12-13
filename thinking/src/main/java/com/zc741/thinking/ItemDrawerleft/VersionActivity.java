@@ -167,7 +167,6 @@ public class VersionActivity extends BaseActivity {
             @Override
             public void onLoading(long total, long current, boolean isUploading) {
                 super.onLoading(total, current, isUploading);
-//                System.out.println("下载进度：" + current + "/" + total);
                 long percent = current * 100 / total;
                 TextView tv_download = (TextView) findViewById(R.id.tv_download);
                 tv_download.setText("下载进度:" + percent + "%");

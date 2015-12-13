@@ -16,7 +16,7 @@
 
         <TextView
             style="@style/AboutStyle"
-            android:text="投稿请发送至邮箱"/>
+            android:text="@string/your_publish"/>
 
         <TextView
             style="@style/AboutStyle"

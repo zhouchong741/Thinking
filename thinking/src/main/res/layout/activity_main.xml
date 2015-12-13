@@ -20,8 +20,8 @@
             android:gravity="center"
             android:lineSpacingExtra="2dp"
             android:padding="6dp"
-            android:text="这是测试的主要内容，每天在这里更新一张图片和文字内容。这是测试的主要内容，每天在这里更新一张图片和文字内容"
-            android:textSize="20sp"/>
+            android:text="@string/error_net"
+            android:textSize="16sp"/>
 
         <ImageView
             android:id="@+id/iv_pic"

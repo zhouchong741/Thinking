@@ -114,7 +114,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(300);
+                    sleep(800);
                     System.out.println("sleep 300ms");
                     finish();
                 } catch (InterruptedException e) {

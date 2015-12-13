@@ -3,12 +3,9 @@ package com.zc741.thinking;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -44,7 +41,6 @@ import com.zc741.thinking.domain.Content;
 import com.zc741.thinking.domain.Utils.DpToPx;
 
 import java.io.File;
-import java.net.URL;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -59,22 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTv_word;
     private ImageView mIv_pic;
     private Content mData;
-    private Bitmap mBitmap;
-    private URL mURL;
 
-    static Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            //处理消息时，需要知道到底是成功的消息，还是失败的消息
-            switch (msg.what) {
-                case 1:
-                    //把位图对象显示至imageview
-                    break;
-                case 0:
-                    break;
-            }
-        }
-    };
     private OnekeyShare oks;
 
     @Override

@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:src="@mipmap/default_state"
             android:padding="4dp"
-            android:layout_height="240dp"/>
+            android:layout_height="240dp"
+            android:elevation="8dp"/>
         <TextView
             android:id="@+id/tv_version"
             android:layout_width="match_parent"

@@ -110,18 +110,6 @@ public class SplashActivity extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.in_from_down, R.anim.out_to_up);
         //结束当前页，当进入MainActivity后返回时，会销毁，直接退出app
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    sleep(800);
-                    System.out.println("sleep 300ms");
-                    finish();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        t.start();
+        finish();
     }
 }

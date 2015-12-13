@@ -58,8 +58,6 @@ public class PublishActivity extends BaseActivity {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                //System.out.println(items[position]);
-                //添加两个布局
                 mLinearLayout = new LinearLayout(getApplicationContext());
                 mLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
                 mLinearLayout.setGravity(Gravity.CENTER_VERTICAL);

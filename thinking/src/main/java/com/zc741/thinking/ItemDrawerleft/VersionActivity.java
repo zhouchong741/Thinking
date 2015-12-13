@@ -73,7 +73,6 @@ public class VersionActivity extends BaseActivity {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 String result = responseInfo.result;
-                //System.out.println(result);
 
                 //解析更新的json
                 parseData(result);
@@ -108,8 +107,6 @@ public class VersionActivity extends BaseActivity {
         }
 
         if (mVersionData.getVersionCode() == mVersionCode) {
-            //删除 Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk" 下的Thinking.apk 文件
-            //deleteFile(Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk");
             deleteAPK();
         }
     }
@@ -220,8 +217,6 @@ public class VersionActivity extends BaseActivity {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                //System.out.println(items[position]);
-                //添加两个布局
                 mLinearLayout = new LinearLayout(getApplicationContext());
                 mLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
                 mLinearLayout.setGravity(Gravity.CENTER_VERTICAL);
@@ -275,6 +270,4 @@ public class VersionActivity extends BaseActivity {
             }
         });
     }
-
-
 }

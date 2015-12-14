@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.GravityCompat;
@@ -201,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
     //获取服务器数据
     private void getDataFromServer() {
-        HttpUtils utils =   new HttpUtils();
+        HttpUtils utils = new HttpUtils();
         String uri = "http://www.zc741.com/thinking/1.json";
         utils.send(HttpMethod.GET, uri, new RequestCallBack<String>() {
             @Override
@@ -239,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
         //解析的网络图片
         bitmapUtils.display(mIv_pic, mData.getPic());
         //下载图片到本地 以分享
-        File file = new File(Environment.getExternalStorageDirectory().getPath()+"/cache.png");
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/cache.png");
         if (file.exists()) {
             System.out.println("存在,不用下载");
         } else {
@@ -285,13 +286,16 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         } else if (id == R.id.menu_share) {
-
-            //判断是否联网 无效的
+            //判断是否联网
             ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (connectivity == null) {
-                Toast.makeText(MainActivity.this, "您的手机没有联网，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
+            NetworkInfo networkInfo = connectivity.getActiveNetworkInfo();
+            if (networkInfo != null) {
+                if (networkInfo.isAvailable() && networkInfo.isConnected()) {
+                    System.out.println("连接网络啦！！！");
+                    shareFunction();
+                }
             } else {
-                shareFunction();
+                Toast.makeText(MainActivity.this, "您的手机没有联网，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
             }
         }
         return super.onOptionsItemSelected(item);

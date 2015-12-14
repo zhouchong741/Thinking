@@ -1,11 +1,14 @@
 package com.zc741.thinking.ItemDrawerleft;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
 import android.view.Gravity;
@@ -93,22 +96,36 @@ public class VersionActivity extends BaseActivity {
         //System.out.println("code==" + mVersionData.getVersionCode());
     }
 
+
     //检查更新
     public void checkupdate(View view) {
+        //判断是否联网
+        ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivity.getActiveNetworkInfo();
+        if (networkInfo != null) {
+            if (networkInfo.isAvailable() && networkInfo.isConnected()) {
+                System.out.println("连接网络啦！！！");
+
+                if (mVersionData.getVersionCode() > mVersionCode) {
+                    deleteAPK();
+                    alertDialog();
+                } else {
+                    Toast.makeText(VersionActivity.this, "当前是最新版本哟！", Toast.LENGTH_SHORT).show();
+                }
+
+                if (mVersionData.getVersionCode() == mVersionCode) {
+                    deleteAPK();
+                }
+            }
+        } else {
+            Toast.makeText(this, "您的手机没有联网，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
+        }
+
         /*
          * mVersionData.getVersionCode(); 服务器版本
          * mVersionCode; 当前版本
          */
-        if (mVersionData.getVersionCode() > mVersionCode) {
-            deleteAPK();
-            alertDialog();
-        } else {
-            Toast.makeText(VersionActivity.this, "当前是最新版本哟！", Toast.LENGTH_SHORT).show();
-        }
 
-        if (mVersionData.getVersionCode() == mVersionCode) {
-            deleteAPK();
-        }
     }
 
     //删除 Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk" 下的Thinking.apk 文件

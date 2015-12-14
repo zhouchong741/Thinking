@@ -21,6 +21,8 @@ public class SplashActivity extends AppCompatActivity {
     private TextView tv_slide_note;
     protected SeekBar seekBar;
     private String progress_value;
+    private boolean mFlag;
+    private ConnectivityManager mConnectivityManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +48,12 @@ public class SplashActivity extends AppCompatActivity {
 
     //检查网络
     private void checkNet() {
-        boolean flag = false;
-
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        if (connectivityManager.getActiveNetworkInfo() != null) {
-            flag = connectivityManager.getActiveNetworkInfo().isAvailable();
+        mFlag = false;
+        mConnectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        if (mConnectivityManager.getActiveNetworkInfo() != null) {
+            mFlag = mConnectivityManager.getActiveNetworkInfo().isAvailable();
         }
-        if (!flag) {
+        if (!mFlag) {
             Toast.makeText(SplashActivity.this, "网络连接出问题啦！可能会影响使用呀", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(SplashActivity.this, "当前网络已连接", Toast.LENGTH_SHORT).show();
@@ -72,7 +73,7 @@ public class SplashActivity extends AppCompatActivity {
                 waveView.setProgress(progress);
 
                 //判断当seekBar==100 显示和隐藏
-                if (progress == 100) {
+                if (progress == 100 && mFlag == mConnectivityManager.getActiveNetworkInfo().isAvailable()) {
                     //整个主布局显示
                     //ll_content.setVisibility(View.VISIBLE);
                     //设置提示手指滑动的文字隐藏

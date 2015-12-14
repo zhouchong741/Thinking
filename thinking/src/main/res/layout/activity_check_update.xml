@@ -14,11 +14,12 @@
         <!--更新的图片-->
         <ImageView
             android:layout_width="match_parent"
-            android:background="@mipmap/pic_bg"
-            android:src="@mipmap/default_state"
-            android:padding="4dp"
             android:layout_height="180dp"
-            android:elevation="8dp"/>
+            android:background="@mipmap/pic_bg"
+            android:elevation="8dp"
+            android:padding="4dp"
+            android:src="@mipmap/default_state"/>
+
         <TextView
             android:id="@+id/tv_version"
             android:layout_width="match_parent"
@@ -28,12 +29,12 @@
             android:textSize="14sp"/>
 
         <Button
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/ripple_bg_version_button"
             android:onClick="checkupdate"
             android:text="@string/check_update"

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private Content mData;
 
     private OnekeyShare oks;
+    private NetworkInfo mNetworkInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         //显示的时间
         showDate();
+
+        ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        mNetworkInfo = connectivity.getActiveNetworkInfo();
+        //网络连接的状态改变
     }
 
     private void showDate() {
@@ -88,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         tv_date.setText(date);
     }
 
-    private void initDrawerToggle() {
+    protected void initDrawerToggle() {
         mActionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.open_string, R.string.close_string);
         mActionBarDrawerToggle.syncState();
         drawerLayout.setDrawerListener(mActionBarDrawerToggle);
@@ -96,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void initItem() {
+    protected void initItem() {
         //侧边栏listItem
         final int[] pics = new int[]{
                 R.mipmap.ic_chat_black_18dp,
@@ -162,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("position==" + position + "; items==" + items[position] + "; pics==" + pics[position]);
                 switch (position) {
                     case 0:
-
                         Intent intent0 = new Intent(getApplicationContext(), AboutActivity.class);
                         startActivity(intent0);
                         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
@@ -214,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //获取服务器数据
-    private void getDataFromServer() {
+    public void getDataFromServer() {
         HttpUtils utils = new HttpUtils();
         String uri = "http://www.zc741.com/thinking/1.json";
         utils.send(HttpMethod.GET, uri, new RequestCallBack<String>() {
@@ -292,7 +296,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 drawerLayout.closeDrawers();
@@ -302,15 +305,13 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.menu_share) {
             //判断是否联网
-            ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connectivity.getActiveNetworkInfo();
-            if (networkInfo != null) {
-                if (networkInfo.isAvailable() && networkInfo.isConnected()) {
+            if (mNetworkInfo != null) {
+                if (mNetworkInfo.isAvailable() && mNetworkInfo.isConnected()) {
                     System.out.println("连接网络啦！！！");
                     shareFunction();
                 }
             } else {
-                Toast.makeText(MainActivity.this, "您的手机没有联网，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "手机没有可用网络，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
             }
         }
         return super.onOptionsItemSelected(item);

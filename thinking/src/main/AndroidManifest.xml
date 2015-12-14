@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.zc741.thinking"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.zc741.thinking"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
@@ -44,7 +43,10 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data android:name="AuthorizeAdapter" android:value="com.zc741.thinking.MyAdapter" />
+            <meta-data
+                android:name="AuthorizeAdapter"
+                android:value="com.zc741.thinking.MyAdapter"/>
+
             <intent-filter>
                 <data android:scheme="tencent100371282"/>
 
@@ -52,7 +54,6 @@
 
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
             </intent-filter>
             <!-- 调用新浪原生SDK，需要注册的回调activity -->
             <intent-filter>
@@ -71,7 +72,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <!-- 调用新浪原生SDK，需要注册的回调activity -->
-        <!--<activity
+        <!--
+        <activity
             android:name="cn.sharesdk.sina.weibo.SinaActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
@@ -79,7 +81,8 @@
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-        </activity>-->
+        </activity>
+        -->
         <!-- ShareSDK -->
         <activity
             android:name=".ItemDrawerleft.AboutActivity"
@@ -101,6 +104,13 @@
             android:name=".ItemDrawerleft.ThinkerActivity"
             android:label="@string/Thinkinger">
         </activity>
+
+        <receiver android:name=".ListenNetWorkBroadcast">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

@@ -42,6 +42,8 @@ import com.zc741.thinking.domain.Content;
 import com.zc741.thinking.domain.Utils.DpToPx;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -73,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
 
         //ShareSDK
         ShareSDK.initSDK(this);
+
+        //显示的时间
+        showDate();
+    }
+
+    private void showDate() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date currentTime = new Date(System.currentTimeMillis());
+        String date = simpleDateFormat.format(currentTime);
+        TextView tv_date = (TextView) findViewById(R.id.tv_date);
+        tv_date.setText(date);
     }
 
     private void initDrawerToggle() {
@@ -208,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 String result = responseInfo.result;
-                //System.out.println("result=" + result);
+                System.out.println("result=" + result);
                 parseJson(result);
             }
 
@@ -232,8 +245,10 @@ public class MainActivity extends AppCompatActivity {
         //System.out.println(mData);
 
         //填充内容
+        TextView tv_num = (TextView) findViewById(R.id.tv_num);
         mTv_word = (TextView) findViewById(R.id.tv_word);
         mIv_pic = (ImageView) findViewById(R.id.iv_pic);
+        tv_num.setText("No." + mData.getNum());
         mTv_word.setText(mData.getWord());
 
         BitmapUtils bitmapUtils = new BitmapUtils(this);
@@ -242,9 +257,9 @@ public class MainActivity extends AppCompatActivity {
         //下载图片到本地 以分享
         File file = new File(Environment.getExternalStorageDirectory().getPath() + "/cache.png");
         if (file.exists()) {
-            System.out.println("存在,不用下载");
+            //System.out.println("存在,不用下载");
         } else {
-            System.out.println("图片不存在，要下载");
+            //System.out.println("图片不存在，要下载");
             cachePng();
         }
     }
@@ -263,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLoading(long total, long current, boolean isUploading) {
                 super.onLoading(total, current, isUploading);
-                System.out.println("下载了:" + current + "/" + total);
+                //System.out.println("下载了:" + current + "/" + total);
             }
 
             @Override

@@ -14,9 +14,10 @@
         <!--更新的图片-->
         <ImageView
             android:layout_width="match_parent"
+            android:background="@mipmap/pic_bg"
             android:src="@mipmap/default_state"
             android:padding="4dp"
-            android:layout_height="240dp"
+            android:layout_height="180dp"
             android:elevation="8dp"/>
         <TextView
             android:id="@+id/tv_version"

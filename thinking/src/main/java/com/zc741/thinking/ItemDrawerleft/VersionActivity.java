@@ -112,7 +112,6 @@ public class VersionActivity extends BaseActivity {
                 } else {
                     Toast.makeText(VersionActivity.this, "当前是最新版本哟！", Toast.LENGTH_SHORT).show();
                 }
-
                 if (mVersionData.getVersionCode() == mVersionCode) {
                     deleteAPK();
                 }

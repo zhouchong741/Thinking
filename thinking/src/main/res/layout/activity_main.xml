@@ -10,24 +10,52 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_word"
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:lineSpacingExtra="2dp"
-            android:padding="6dp"
-            android:text="@string/error_net"
-            android:textSize="16sp"/>
+            android:background="@color/item_color"
+            android:elevation="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:text="No.1"
+                android:textColor="#fff"/>
+
+            <TextView
+                android:id="@+id/tv_word"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:padding="6dp"
+                android:text="@string/error_net"
+                android:textColor="#fff"
+                android:textSize="16sp"/>
+
+            <!--时间日期-->
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="6dp"
+                android:textColor="#fff"
+                android:text="2015-12-14"/>
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/iv_pic"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_marginTop="18dp"
-            android:elevation="18dp"
-            android:src="@mipmap/default_state"/>
+            android:layout_height="180dp"
+            android:layout_marginTop="30dp"
+            android:background="@mipmap/pic_bg"
+            android:elevation="8dp"/>
     </LinearLayout>
 
     <LinearLayout

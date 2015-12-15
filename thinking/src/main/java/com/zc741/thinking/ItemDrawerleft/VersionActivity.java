@@ -188,8 +188,6 @@ public class VersionActivity extends BaseActivity {
         utils.download(uri, mTargetPath, true, new RequestCallBack<File>() {
             @Override
             public void onSuccess(ResponseInfo<File> responseInfo) {
-                System.out.println("responseInfo==" + responseInfo);
-
                 //成功后跳转到安装界面
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_DEFAULT);

@@ -328,7 +328,6 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 Intent setting = new Intent(Settings.ACTION_SETTINGS);
                 startActivity(setting);
                 dialog.dismiss();

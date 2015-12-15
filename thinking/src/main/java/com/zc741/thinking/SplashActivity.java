@@ -60,7 +60,6 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-
     private void initViews() {
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         waveView = (WaveView) findViewById(R.id.wave_view);
@@ -73,7 +72,7 @@ public class SplashActivity extends AppCompatActivity {
                 waveView.setProgress(progress);
 
                 //判断当seekBar==100 显示和隐藏
-                if (progress == 100 && mFlag == mConnectivityManager.getActiveNetworkInfo().isAvailable()) {
+                if (progress == 100) {
                     //整个主布局显示
                     //ll_content.setVisibility(View.VISIBLE);
                     //设置提示手指滑动的文字隐藏

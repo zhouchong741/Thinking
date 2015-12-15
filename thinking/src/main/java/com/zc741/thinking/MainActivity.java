@@ -1,12 +1,15 @@
 package com.zc741.thinking;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -312,9 +315,35 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else {
                 Toast.makeText(MainActivity.this, "手机没有可用网络，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
+                alertDialog();
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void alertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("当前网络不可用哎~, 前往去设置吗？");
+        builder.setTitle("网络挂了");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent setting = new Intent(Settings.ACTION_SETTINGS);
+                startActivity(setting);
+                dialog.dismiss();
+                //finish();
+                startActivity(new Intent(MainActivity.this, SplashActivity.class));
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        //这句话一定是要写的
+        builder.create().show();
     }
 
     @Override

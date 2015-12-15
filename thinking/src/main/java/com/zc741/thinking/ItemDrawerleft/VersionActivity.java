@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.zc741.thinking.R;
+import com.zc741.thinking.SplashActivity;
 import com.zc741.thinking.domain.Utils.DpToPx;
 import com.zc741.thinking.domain.VersionData;
 
@@ -118,13 +120,31 @@ public class VersionActivity extends BaseActivity {
             }
         } else {
             Toast.makeText(this, "您的手机没有联网，暂时不能使用此功能哟！", Toast.LENGTH_SHORT).show();
+            //弹出连接网络
+            alertConnect();
         }
+    }
 
-        /*
-         * mVersionData.getVersionCode(); 服务器版本
-         * mVersionCode; 当前版本
-         */
-
+    private void alertConnect() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("当前网络不可用哎~, 前往去设置吗？");
+        builder.setTitle("网络挂了");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent setting = new Intent(Settings.ACTION_SETTINGS);
+                startActivity(setting);
+                dialog.dismiss();
+                startActivity(new Intent(VersionActivity.this, SplashActivity.class));
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
     }
 
     //删除 Environment.getExternalStorageDirectory().getPath() + "/Thinking.apk" 下的Thinking.apk 文件

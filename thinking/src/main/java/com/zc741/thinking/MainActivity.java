@@ -333,6 +333,7 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
                 //finish();
                 startActivity(new Intent(MainActivity.this, SplashActivity.class));
+                finish();
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

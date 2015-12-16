@@ -58,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle mActionBarDrawerToggle;
 
     private LinearLayout mLinearLayout;
-    private TextView mTv_word;
-    private ImageView mIv_pic;
+    TextView mTv_word;
+    ImageView mIv_pic;
     private Content mData;
 
-    private OnekeyShare oks;
+    OnekeyShare oks;
     private NetworkInfo mNetworkInfo;
 
     @Override

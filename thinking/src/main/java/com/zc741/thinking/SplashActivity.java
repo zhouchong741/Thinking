@@ -21,8 +21,8 @@ public class SplashActivity extends AppCompatActivity {
     private TextView tv_slide_note;
     protected SeekBar seekBar;
     private String progress_value;
-    private boolean mFlag;
-    private ConnectivityManager mConnectivityManager;
+    boolean mFlag;
+    ConnectivityManager mConnectivityManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

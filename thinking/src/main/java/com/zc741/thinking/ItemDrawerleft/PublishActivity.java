@@ -20,7 +20,6 @@ public class PublishActivity extends BaseActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_publish);
-
         initItem();
     }
     public void initItem() {

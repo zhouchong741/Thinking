@@ -38,7 +38,7 @@ public class VersionActivity extends BaseActivity {
     private String mVersion;
     private LinearLayout mLinearLayout;
     private VersionData mVersionData;
-    private String mTargetPath;
+    String mTargetPath;
     private int mVersionCode;
 
     @Override

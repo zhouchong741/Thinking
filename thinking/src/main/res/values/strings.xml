@@ -19,7 +19,7 @@
     <string name="weChatNum_detail">zc741741forever</string>
     <string name="erweima">微信二维码</string>
     <string name="suggestion">Thinkinger的建议请通过微信和我们联系</string>
-    <string name="your_publish">投稿请发送至邮箱</string>
+    <string name="your_publish">投稿请发送至以下任意邮箱</string>
     <string name="Thinking_to_thinker">关于开发Thinking想和Thinker说说</string>
     <string name="thinker_1">1. Thinking的大小会控制在5M以内，尽量减少一些不必要的功能,让Thinking在您手机的占用空间降到最低。</string>
     <string name="thinker_2">2. Thinking的使用是必需要连接网络的，Thinking的问题和图片在打开的时候会请求一次网络。</string>
@@ -28,4 +28,5 @@
     <string name="currentBeta">当前版本:</string>
     <string name="check_update">检查更新</string>
     <string name="weChatNumcopy">长按复制微信号</string>
+    <string name="useemail">点击使用</string>
 </resources>

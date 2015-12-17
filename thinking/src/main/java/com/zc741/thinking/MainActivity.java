@@ -384,7 +384,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //创建分享条目
+    //创建分享菜单
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.share, menu);

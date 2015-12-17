@@ -2,6 +2,7 @@ package com.zc741.thinking.ItemDrawerleft;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,17 @@ import com.zc741.thinking.domain.Utils.DpToPx;
 
 public class PublishActivity extends BaseActivity {
     private LinearLayout mLinearLayout;
+
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_publish);
         initItem();
+
+        //发送邮件
+        sendEamil();
     }
+
+
     public void initItem() {
         //侧边栏listItem
         final int[] pics = new int[]{
@@ -111,4 +118,47 @@ public class PublishActivity extends BaseActivity {
             }
         });
     }
+
+    //发送邮件
+    private void sendEamil() {
+        final String[] mail = {"zhouchong741@hotmail.com", "zhouchong741@gmail.com", "postmaster@zc741.com"};
+
+        TextView tv_hotmail = (TextView) findViewById(R.id.tv_hotmail);
+        TextView tv_gmail = (TextView) findViewById(R.id.tv_gmail);
+        TextView tv_postmaster = (TextView) findViewById(R.id.tv_postmaster);
+        tv_hotmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse("mailto:" + mail[0]);
+                Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "投稿");
+                intent.putExtra(Intent.EXTRA_TEXT, "正文内容");
+                startActivity(Intent.createChooser(intent, "选择邮件"));
+            }
+        });
+        tv_gmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse("mailto:" + mail[1]);
+                Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "投稿");
+                intent.putExtra(Intent.EXTRA_TEXT, "正文内容");
+                startActivity(Intent.createChooser(intent, "选择邮件"));
+            }
+        });
+        tv_postmaster.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+                Uri uri = Uri.parse("mailto:" + mail[2]);
+                Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "投稿");
+                intent.putExtra(Intent.EXTRA_TEXT, "正文内容");
+                startActivity(Intent.createChooser(intent, "选择邮件"));
+            }
+        });
+    }
+
 }

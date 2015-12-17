@@ -13,7 +13,10 @@
 
 
         <TextView
-            style="@style/AboutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
             android:text="@string/your_publish"/>
 
         <TextView
@@ -26,20 +29,19 @@
         <TextView
             android:id="@+id/tv_hotmail"
             style="@style/AboutStyle"
-            android:text="zhouchong741@hotmail.com"
+            android:text="@string/zhouchong741_hotmail_com"
             android:textIsSelectable="true"/>
 
         <TextView
             android:id="@+id/tv_gmail"
             style="@style/AboutStyle"
-            android:text="zhouchong741@gmail.com"
-
+            android:text="@string/zhouchong741_gmail_com"
             android:textIsSelectable="true"/>
 
         <TextView
             android:id="@+id/tv_postmaster"
             style="@style/AboutStyle"
-            android:text="postmaster@zc741.com"
+            android:text="@string/postmaster_zc741_com"
             android:textIsSelectable="true"/>
 
     </LinearLayout>

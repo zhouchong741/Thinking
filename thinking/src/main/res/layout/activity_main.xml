@@ -48,13 +48,12 @@
                 android:text="2015-12-14"/>
         </LinearLayout>
 
-
         <ImageView
             android:id="@+id/iv_pic"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="205dp"
             android:layout_marginTop="30dp"
-            android:background="@mipmap/default_state"
+            android:background="@mipmap/error"
             android:elevation="8dp"/>
     </LinearLayout>
 

@@ -1,10 +1,8 @@
 <android.support.v4.widget.DrawerLayout
     android:id="@+id/drawer"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mingle.service.ui.MainActivity">
+    android:layout_height="match_parent">
 
 
     <ScrollView
@@ -19,23 +17,23 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/AboutStyle"
+                style="@style/ThinkerStyle"
                 android:text="@string/aboutThinking"/>
 
             <TextView
-                style="@style/AboutStyle"
+                style="@style/ThinkerStyle"
                 android:text="@string/aboutThinking_1"/>
 
             <TextView
-                style="@style/AboutStyle"
+                style="@style/ThinkerStyle"
                 android:text="@string/aboutThinking_2"/>
 
             <TextView
-                style="@style/AboutStyle"
+                style="@style/ThinkerStyle"
                 android:text="@string/aboutThinking_3"/>
 
             <TextView
-                style="@style/AboutStyle"
+                style="@style/ThinkerStyle"
                 android:text="@string/aboutThinking_4"/>
 
         </LinearLayout>

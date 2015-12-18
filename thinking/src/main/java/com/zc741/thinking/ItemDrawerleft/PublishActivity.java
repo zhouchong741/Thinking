@@ -28,7 +28,6 @@ public class PublishActivity extends BaseActivity {
         sendEamil();
     }
 
-
     public void initItem() {
         //侧边栏listItem
         final int[] pics = new int[]{

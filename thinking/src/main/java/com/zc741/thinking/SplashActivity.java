@@ -16,7 +16,6 @@ import java.io.File;
 
 public class SplashActivity extends AppCompatActivity {
 
-
     protected WaveView waveView;
     private TextView tv_slide_note;
     protected SeekBar seekBar;

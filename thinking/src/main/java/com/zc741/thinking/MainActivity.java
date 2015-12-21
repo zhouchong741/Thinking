@@ -47,6 +47,7 @@ import com.zc741.thinking.domain.Utils.DpToPx;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDate() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
         Date currentTime = new Date(System.currentTimeMillis());
         String date = simpleDateFormat.format(currentTime);
         TextView tv_date = (TextView) findViewById(R.id.tv_date);

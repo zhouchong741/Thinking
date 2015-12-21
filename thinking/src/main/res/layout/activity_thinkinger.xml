@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="@string/Thinking_to_thinker"
-                android:textSize="18dp"/>
+                android:textSize="15dp"/>
 
             <TextView
                 style="@style/ThinkerStyle"

@@ -44,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginRight="6dp"
-                android:textColor="#fff"
-                android:text="@string/gettime"/>
+                android:text="@string/gettime"
+                android:textColor="#fff"/>
         </LinearLayout>
 
         <ImageView

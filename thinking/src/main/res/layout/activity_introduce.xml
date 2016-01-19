@@ -20,8 +20,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textSize="15dp"
-                android:text="@string/aboutThinking"/>
+                android:text="@string/aboutThinking"
+                android:textSize="15dp"/>
 
             <TextView
                 style="@style/ThinkerStyle"
@@ -38,6 +38,10 @@
             <TextView
                 style="@style/ThinkerStyle"
                 android:text="@string/aboutThinking_4"/>
+
+            <TextView
+                style="@style/ThinkerStyle"
+                android:text="@string/aboutThinking_5"/>
 
         </LinearLayout>
     </ScrollView>

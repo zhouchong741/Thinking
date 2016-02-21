@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     OnekeyShare oks;
     private NetworkInfo mNetworkInfo;
 
+//    现在只是为了测试
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
